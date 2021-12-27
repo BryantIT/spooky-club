@@ -1,5 +1,5 @@
 import React from "react"
-import { Row, Header, Logo, NavWrap } from './Styles'
+import { Row, Header, Logo, NavWrap, MainNav } from './Styles'
 import { Link } from "react-router-dom"
 import logo from '../../assests/images/logo.png'
 
@@ -12,8 +12,8 @@ const Navbar = () => {
         </Logo>
 
         <NavWrap>
-          <ul className="main-navigation">
-            <li className="current">
+          <MainNav>
+            <li>
               <a className="smoothscroll" href="#intro" title="">
                 Home
               </a>
@@ -43,7 +43,7 @@ const Navbar = () => {
                 Sign Up
               </a>
             </li>
-          </ul>
+          </MainNav>
         </NavWrap>
 
         <a className="menu-toggle" href="#">

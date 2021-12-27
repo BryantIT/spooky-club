@@ -131,3 +131,77 @@ export const NavWrap = styled.nav`
   	display: block !important;
   }
 `
+
+export const MainNav = styled.ul`
+  min-height: 66px;
+  display: inline-block;
+  width: auto;
+  text-align: left;
+
+  li {
+    position: relative;
+  	display: inline-block;
+  	list-style: none;
+  	padding: 0;
+  	margin: 0;
+  	height: 66px;
+  }
+
+  a {
+    display: block;
+  	padding: 18px 7px;
+  	line-height: 30px;
+  	text-decoration: none;
+  	text-align: left;
+  	color: #98999a;
+  	position: relative;
+  	-moz-transition: color 0.3s ease-in-out;
+  	-o-transition: color 0.3s ease-in-out;
+  	-webkit-transition: color 0.3s ease-in-out;
+  	-ms-transition: color 0.3s ease-in-out;
+  	transition: color 0.3s ease-in-out;
+  }
+
+  @media only screen and (max-width:768px) {
+  		background: #14171c;
+  		padding: 48px 42px 54px 42px;
+  		margin: 0;
+  		width: 100%;
+  		height: auto;
+  		clear: both;
+  		display: none;
+  	li {
+  		display: block;
+  		height: auto;
+  		text-align: left;
+  		border-bottom: 1px dotted rgba(200, 200, 200, 0.08);
+  		padding: 0;
+  	}
+  	&:first-child {
+  		border-top: 1px dotted rgba(200, 200, 200, 0.08);
+  	}
+  	li a {
+  		display: block;
+  		color: #e6e6e6;
+  		width: auto;
+  		padding: 18px 0;
+  		line-height: 16px;
+  		border: none;
+  	}
+  }
+`
+
+export const NavItem = styled.div`
+  display: block;
+  padding: 18px 7px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: left;
+  color: #98999a;
+  position: relative;
+  -moz-transition: color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out;
+  -webkit-transition: color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+`
