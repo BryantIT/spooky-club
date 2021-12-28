@@ -1423,21 +1423,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 	background-size: 38px 38px;
 }
 
-/**
- * primary navigation
- * -
- */
-
-/* hide toggle button */
-a.menu-toggle {
-	display: none;
-}
-
-/**
- * mobile view - primary navigation
- * -
- */
-
 @media only screen and (max-width:768px) {
 	a.menu-toggle {
 		display: block;
