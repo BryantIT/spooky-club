@@ -7,6 +7,7 @@ import "./App.css"
 import { Routes, Route, Link } from "react-router-dom"
 import { db } from './firebase-config'
 import { collection, getDocs, addDoc, getDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import { AuthProvider } from './auth/UserAuth'
 
 function App() {
   const [testName, setTestName] = useState('Bob')
@@ -52,14 +53,15 @@ function App() {
     await deleteDoc(testDoc)
   }
   return (
-    <Fragment>
-      <Navbar />
-      <Routes>
-        {/* <Route path="/" element={<Landing />} /> */}
-        <Route path="/" element={<Main />} />
-      </Routes>
-      <button onClick={deleteTest}>TEST</button>
-    </Fragment>
+    <AuthProvider>
+      <Fragment>
+        <Navbar />
+        <Routes>
+          {/* <Route path="/" element={<Landing />} /> */}
+          <Route path="/" element={<Main />} />
+        </Routes>
+      </Fragment>
+    </AuthProvider>
   )
 }
 
