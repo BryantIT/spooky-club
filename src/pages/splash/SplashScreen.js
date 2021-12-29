@@ -1,7 +1,14 @@
-import React from "react";
-import "./styles.css";
+import React, { useState, useEffect } from "react"
+import "./styles.css"
 
 const SplashScreen = ({ endSplash }) => {
+  const [showButton, setShowButton] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowButton(true)
+    }, 15000)
+  }, [])
   return (
     <div className="container">
       <div className="content">
@@ -12,11 +19,14 @@ const SplashScreen = ({ endSplash }) => {
         <h2 className="frame-5">
           <span>We are the Myst and Orb Society</span>
           <br />
-        <button onClick={endSplash}>Enter Here</button>
+        {
+          showButton ?
+          <button className='btn' onClick={endSplash}>Enter Here</button> : null
+        }
         </h2>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SplashScreen;
+export default SplashScreen
