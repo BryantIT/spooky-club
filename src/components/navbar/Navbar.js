@@ -1,9 +1,18 @@
 import React from "react"
-import { Row, Header, Logo, NavWrap, MainNav } from './Styles'
+import {
+  Row,
+  Header,
+  Logo,
+  NavWrap,
+  MainNav,
+  StyledLink,
+  SignUpLink
+ } from './Styles'
 import { Link } from "react-router-dom"
 import logo from '../../assests/images/logo.png'
 
 const Navbar = () => {
+
   return (
     <Header>
       <Row>
@@ -13,13 +22,14 @@ const Navbar = () => {
         <NavWrap>
           <MainNav>
             <li>
-              <Link to='/'>Home</Link>
+              <StyledLink to='/' activeClassName='active'>Home</StyledLink>
             </li>
             <li>
-              <Link to='/page'>Page</Link>
+              <StyledLink to='/page' activeClassName='active'>Page</StyledLink>
             </li>
+            <li>|</li>
             <li>
-              <Link to='signup'>| Sign Up</Link>
+              <SignUpLink to='signup' activeClassName='active'>Sign Up</SignUpLink>
             </li>
           </MainNav>
         </NavWrap>
