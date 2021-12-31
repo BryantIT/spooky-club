@@ -700,16 +700,8 @@ body {
  * -
  */
 
-a, a:visited {
-	color: #0087cc;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	-webkit-transition: all 0.3s ease-in-out;
-	-ms-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-}
 a:hover, a:focus {
-	color: #ff7b29;
+	color: #29fff2;
 }
 
 /**

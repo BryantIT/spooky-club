@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Row = styled.div`
   width: 94%;
@@ -118,18 +119,6 @@ export const NavWrap = styled.nav`
   right: 30px;
   margin: 0;
 	padding: 0;
-
-  @media only screen and (max-width:768px) {
-  	display: block;
-  	width: 100%;
-  	position: absolute;
-  	top: 69px;
-  	right: 0;
-  }
-
-  @media only screen and (min-width:769px) {
-  	display: block !important;
-  }
 `
 
 export const MainNav = styled.ul`
@@ -146,47 +135,36 @@ export const MainNav = styled.ul`
   	margin: 0;
   	height: 66px;
   }
+`
 
-  a {
-    display: block;
-  	padding: 18px 7px;
-  	line-height: 30px;
-  	text-decoration: none;
-  	text-align: left;
-  	color: #98999a;
-  	position: relative;
-  	-moz-transition: color 0.3s ease-in-out;
-  	-o-transition: color 0.3s ease-in-out;
-  	-webkit-transition: color 0.3s ease-in-out;
-  	-ms-transition: color 0.3s ease-in-out;
-  	transition: color 0.3s ease-in-out;
+export const StyledLink = styled(Link)`
+  display: block;
+  padding: 18px 7px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: left;
+  color: #98999a;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0074D9;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   }
+  &:hover {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+  .active {
+  	color: #0087cc;
+  }
+`
 
-  @media only screen and (max-width:768px) {
-  		background: #14171c;
-  		padding: 48px 42px 54px 42px;
-  		margin: 0;
-  		width: 100%;
-  		height: auto;
-  		clear: both;
-  		display: none;
-  	li {
-  		display: block;
-  		height: auto;
-  		text-align: left;
-  		border-bottom: 1px dotted rgba(200, 200, 200, 0.08);
-  		padding: 0;
-  	}
-  	&:first-child {
-  		border-top: 1px dotted rgba(200, 200, 200, 0.08);
-  	}
-  	li a {
-  		display: block;
-  		color: #e6e6e6;
-  		width: auto;
-  		padding: 18px 0;
-  		line-height: 16px;
-  		border: none;
-  	}
-  }
+export const SignUpLink = styled(StyledLink)`
+  color: #d4af37;
 `
