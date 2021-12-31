@@ -190,18 +190,3 @@ export const MainNav = styled.ul`
   	}
   }
 `
-
-export const NavItem = styled.div`
-  display: block;
-  padding: 18px 7px;
-  line-height: 30px;
-  text-decoration: none;
-  text-align: left;
-  color: #98999a;
-  position: relative;
-  -moz-transition: color 0.3s ease-in-out;
-  -o-transition: color 0.3s ease-in-out;
-  -webkit-transition: color 0.3s ease-in-out;
-  -ms-transition: color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out;
-`

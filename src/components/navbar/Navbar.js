@@ -10,45 +10,19 @@ const Navbar = () => {
         <Logo>
           <Link to='/'><img src={logo} /></Link>
         </Logo>
-
         <NavWrap>
           <MainNav>
             <li>
-              <a className="smoothscroll" href="#intro" title="">
-                Home
-              </a>
+              <Link to='/'>Home</Link>
             </li>
             <li>
-              <a className="smoothscroll" href="#process" title="">
-                Process
-              </a>
+              <Link to='/page'>Page</Link>
             </li>
             <li>
-              <a className="smoothscroll" href="#features" title="">
-                Features
-              </a>
-            </li>
-            <li>
-              <a className="smoothscroll" href="#pricing" title="">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a className="smoothscroll" href="#faq" title="">
-                FAQ
-              </a>
-            </li>
-            <li className="highlight with-sep">
-              <a href="#" title="">
-                Sign Up
-              </a>
+              <Link to='signup'>| Sign Up</Link>
             </li>
           </MainNav>
         </NavWrap>
-
-        <a className="menu-toggle" href="#">
-          <span>Menu</span>
-        </a>
       </Row>
     </Header>
   )
