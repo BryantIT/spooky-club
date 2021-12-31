@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react"
-// import Landing from "./pages/landing/Landing"
+import Landing from "./pages/landing/Landing"
 import Main from "./pages/Main/Main"
 import Navbar from './components/navbar/Navbar'
 import SplashScreen from './pages/splash/SplashScreen'
@@ -66,7 +66,7 @@ function App() {
           <Fragment>
             <Navbar />
             <Routes>
-              {/* <Route path="/" element={<Landing />} /> */}
+              <Route path="/" element={<Landing />} />
               {/* <Route path="/" element={<Main />} /> */}
             </Routes>
           </Fragment> : <SplashScreen endSplash={endSplash} />
