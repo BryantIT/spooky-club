@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react"
 // import {
 //   Row,
 //   Header,
@@ -7,8 +7,8 @@ import React, { Fragment, useState } from "react";
 //   StyledLink,
 //   SignUpLink,
 // } from "./Styles";
-import { Link } from "react-router-dom";
-import './styles.css'
+import { Link } from "react-router-dom"
+import "./styles.css"
 
 const Navbar = () => {
   const [checkActive, setCheckActive] = useState(false)
@@ -18,15 +18,22 @@ const Navbar = () => {
   }
   return (
     <Fragment>
-      <input type="checkbox" id="active" checked={checkActive} onClick={handleMenuClick}/>
+      <input
+        type="checkbox"
+        id="active"
+        checked={checkActive}
+        onClick={handleMenuClick}
+      />
       <label for="active" class="menu-btn">
         <span></span>
       </label>
       <label for="active" class="close" onClick={handleMenuClick}></label>
-      <div class="wrapper">
+      <div className="wrapper">
         <ul>
           <li>
-            <Link to='/' onClick={handleMenuClick}>Home</Link>
+            <Link to="/" onClick={handleMenuClick}>
+              Home
+            </Link>
           </li>
           <li>
             <a href="#">About</a>
@@ -39,72 +46,11 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Gallery</a>
-          </li>
-          <li>
-            <a href="#">Feedback</a>
-          </li>
-        </ul>
-      </div>
-      <div class="wrapper">
-        <ul>
-          <li>
-            <Link to='/' onClick={handleMenuClick}>Home</Link>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Gallery</a>
-          </li>
-          <li>
-            <a href="#">Feedback</a>
           </li>
         </ul>
       </div>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
