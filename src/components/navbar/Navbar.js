@@ -36,16 +36,18 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <Link to="/about" onClick={handleMenuClick}>
+              About
+            </Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="#">Page</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="#">Page</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="#">Page</a>
           </li>
         </ul>
       </div>
