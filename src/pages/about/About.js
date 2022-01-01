@@ -1,9 +1,13 @@
-import React from "react"
+import React, { Fragment } from "react"
 import Bio from '../../components/about/Bio'
+import Crew from '../../components/about/Crew'
 
 const About = () => {
   return (
-    <Bio />
+    <Fragment>
+      <Bio />
+      <Crew />
+    </Fragment>
   )
 }
 
