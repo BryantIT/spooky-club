@@ -1,3 +1,5 @@
+/* Do not convert to modules.  Needs to remain CSS in order to override the importanted css */
+
 .carousel-root {
   width: 64% !important;
   margin: auto !important;
@@ -5,8 +7,8 @@
 }
 
 .carousel .slide {
-  background: #fff !important;
-  color: black;
+  background: blac !important;
+  color: white;
   height: 100%;
 }
 
@@ -88,7 +90,7 @@
 
 .carousel.carousel-slider .control-arrow {
   background: #000 !important;
-  height: 50px !important;
+  height: 50px;
   position: absolute;
   top: 35% !important;
 }
