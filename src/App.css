@@ -1242,9 +1242,9 @@ label, legend {
 label span, legend span {
 	color: #05bca9;
 }
-input[type="checkbox"], input[type="radio"] {
+/* input[type="checkbox"], input[type="radio"] {
 	display: inline;
-}
+} */
 
 /**
  * Style Placeholder Text
