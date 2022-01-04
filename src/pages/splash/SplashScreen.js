@@ -23,12 +23,12 @@ const SplashScreen = ({ endSplash }) => {
     <div className={container}>
       <div className={content}>
         <h2 className={frame1}>We are believers of the unknown</h2>
-      <h2 className={frame2}>We are paranormal investigators</h2>
-    <h2 className={frame3}>We are here to help</h2>
-  <h2 className={frame4}>If you are ready</h2>
-<h2 className={frame5}>
-          <span>We are the Myst and Orb Society</span>
-          <br />
+        <h2 className={frame2}>We are paranormal investigators</h2>
+        <h2 className={frame3}>We are here to help</h2>
+        <h2 className={frame4}>If you are ready</h2>
+        <h2 className={frame5}>
+        <span>We are the Myst and Orb Society</span>
+        <br />
         {
           showButton ?
           <button className={btn} onClick={endSplash}>Enter Here</button> : null
