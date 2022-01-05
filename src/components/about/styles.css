@@ -1,9 +1,8 @@
-/* Do not convert to modules.  Needs to remain CSS in order to override the importanted css */
+/* Do not convert to modules.  Needs to remain CSS in order to override the imported css */
 
 .carousel-root {
   width: 64% !important;
   margin: auto !important;
-  margin-top: 3% !important;
 }
 
 .carousel .slide {

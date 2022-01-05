@@ -6,6 +6,7 @@ import SplashScreen from './pages/splash/SplashScreen'
 import About from './pages/about/About'
 // Components
 import Navbar from './components/navbar/Navbar'
+import Logo from './components/logo/Logo'
 // Styles
 import "./App.css"
 // Packages
@@ -77,6 +78,7 @@ function App() {
         {
           enterSite ?
           <Fragment>
+            <Logo />
             <Navbar />
             <Routes>
               <Route exact path="/" element={<Landing />} />

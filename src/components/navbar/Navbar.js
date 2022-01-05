@@ -8,10 +8,11 @@ import React, { Fragment, useState } from "react"
 //   SignUpLink,
 // } from "./Styles";
 import { Link } from "react-router-dom"
-import "./styles.css"
+import styles from './styles.module.css'
 
 const Navbar = () => {
   const [checkActive, setCheckActive] = useState(false)
+  const { menuBtn, close, wrapper, active } = styles
 
   const handleMenuClick = () => {
     setCheckActive(!checkActive)
@@ -20,15 +21,15 @@ const Navbar = () => {
     <Fragment>
       <input
         type="checkbox"
-        id="active"
+        id={active}
         checked={checkActive}
         onClick={handleMenuClick}
       />
-      <label for="active" class="menu-btn">
+    <label for={active} className={menuBtn}>
         <span></span>
       </label>
-      <label for="active" class="close" onClick={handleMenuClick}></label>
-      <div className="wrapper">
+      <label for={active} className={close} onClick={handleMenuClick}></label>
+    <div className={wrapper}>
         <ul>
           <li>
             <Link to="/" onClick={handleMenuClick}>
