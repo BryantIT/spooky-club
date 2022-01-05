@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
 import styles from "./styles.module.css"
+import { Link } from 'react-router-dom'
 
 const SplashScreen = ({ endSplash }) => {
   const [showButton, setShowButton] = useState(false)
+  const [showLogo, setShowLogo] = useState(false)
   const {
     container,
     content,
@@ -11,13 +13,21 @@ const SplashScreen = ({ endSplash }) => {
     frame3,
     frame4,
     frame5,
-    btn
+    btn,
+    logo
   } = styles
 
   useEffect(() => {
     setTimeout(() => {
       setShowButton(true)
+      setShowLogo(true)
     }, 15000)
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowLogo(true)
+    }, 10000)
   }, [])
   return (
     <div className={container}>
@@ -27,6 +37,12 @@ const SplashScreen = ({ endSplash }) => {
         <h2 className={frame3}>We are here to help</h2>
         <h2 className={frame4}>If you are ready</h2>
         <h2 className={frame5}>
+          {
+            showLogo ?
+            <div className={logo}>
+              <Link to='/'></Link>
+          </div> : null
+          }
         <span>We are the Myst and Orb Society</span>
         <br />
         {

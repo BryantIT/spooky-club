@@ -349,9 +349,9 @@ textarea {
 .col-eleven {
 	width: 91.66667%;
 }
-.col-twelve, .col-full {
+/* .col-twelve, .col-full {
 	width: 100%;
-}
+} */
 
 /**
  * small screens
@@ -1477,7 +1477,7 @@ header .row {
 	position: relative;
 }
 
-header .logo {
+.logo {
 	margin-top: 2px;
 	z-index: 600;
 	position: absolute;
@@ -1487,7 +1487,7 @@ header .logo {
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
-header .logo a {
+.logo a {
 	display: block;
 	margin: 0;
 	padding: 0;
@@ -1497,7 +1497,7 @@ header .logo a {
 	color: transparent;
 	width: 42px;
 	height: 42px;
-	/* background: url("../images/logo.png") no-repeat center; */
+	background: url("./images/sitelogo.png") no-repeat center;
 	background-size: 42px 42px;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;

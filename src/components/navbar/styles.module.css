@@ -11,7 +11,7 @@
 #active:checked ~ .wrapper{
   right:0;
 }
-.menu-btn{
+.menuBtn{
   position: absolute;
   z-index: 2;
   right: 20px;
@@ -25,9 +25,9 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.menu-btn span,
-.menu-btn:before,
-.menu-btn:after{
+.menuBtn span,
+.menuBtn:before,
+.menuBtn:after{
 	content: "";
 	position: absolute;
 	top: calc(50% - 1px);
@@ -36,10 +36,10 @@
 	border-bottom: 2px solid white;
 	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.menu-btn:before{
+.menuBtn:before{
   transform: translateY(-8px);
 }
-.menu-btn:after{
+.menuBtn:after{
   transform: translateY(8px);
 }
 
@@ -53,14 +53,14 @@
 }
 
 /* closing animation */
-#active:checked + .menu-btn span {
+#active:checked + .menuBtn span {
 	transform: scaleX(0);
 }
-#active:checked + .menu-btn:before {
+#active:checked + .menuBtn:before {
 	transform: rotate(45deg);
   border-color: #fff;
 }
-#active:checked + .menu-btn:after {
+#active:checked + .menuBtn:after {
 	transform: rotate(-45deg);
   border-color: #fff;
 }
