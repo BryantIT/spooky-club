@@ -1,13 +1,26 @@
 import React, { Fragment, useEffect, useState } from "react"
+// Pages
 import Landing from "./pages/landing/Landing"
 import Main from "./pages/Main/Main"
-import Navbar from './components/navbar/Navbar'
 import SplashScreen from './pages/splash/SplashScreen'
-// import { Wrapper, Pages } from "./Styles"
+import About from './pages/about/About'
+// Components
+import Navbar from './components/navbar/Navbar'
+// Styles
 import "./App.css"
+// Packages
 import { Routes, Route, Link } from "react-router-dom"
+// Firebase
 import { db } from './firebase-config'
-import { collection, getDocs, addDoc, getDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import {
+  collection,
+  getDocs,
+  addDoc,
+  getDoc,
+  doc,
+  updateDoc,
+  deleteDoc
+} from 'firebase/firestore'
 import { AuthProvider } from './auth/UserAuth'
 
 function App() {
@@ -66,8 +79,8 @@ function App() {
           <Fragment>
             <Navbar />
             <Routes>
-              <Route path="/" element={<Landing />} />
-              {/* <Route path="/" element={<Main />} /> */}
+              <Route exact path="/" element={<Landing />} />
+              <Route  exact path="/about" element={<About />} />
             </Routes>
           </Fragment> : <SplashScreen endSplash={endSplash} />
         }
