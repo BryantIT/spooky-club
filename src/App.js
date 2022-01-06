@@ -7,6 +7,7 @@ import About from './pages/about/About'
 // Components
 import Navbar from './components/navbar/Navbar'
 import Logo from './components/logo/Logo'
+import Footer from './components/footer/Footer'
 // Styles
 import "./App.css"
 // Packages
@@ -84,6 +85,7 @@ function App() {
               <Route exact path="/" element={<Landing />} />
               <Route  exact path="/about" element={<About />} />
             </Routes>
+            <Footer />
           </Fragment> : <SplashScreen endSplash={endSplash} />
         }
       </Fragment>
