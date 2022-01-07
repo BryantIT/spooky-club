@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styles from "./styles.module.css"
 import {
   FaMapMarkerAlt,
@@ -6,73 +6,68 @@ import {
   FaEnvelope,
   FaFacebookSquare,
   FaTwitterSquare,
-  FaInstagramSquare
- } from 'react-icons/fa'
+  FaInstagramSquare,
+} from "react-icons/fa"
+import Logo from "../logo/Logo"
 
 const Footer = () => {
+  const [year, setYear] = useState("")
+
+  useEffect(() => {
+    const currentYear = new Date().getFullYear()
+    setYear(currentYear)
+  }, [])
   const {
     footer,
     left,
-    links,
     companyName,
     center,
     right,
     iconWrapper,
     footerCompanyAbout,
-    footerIcons
-   } = styles
-   
+    footerIcons,
+  } = styles
+
   return (
     <footer className={footer}>
       <div className={left}>
-        <h3>
-          WebDev<span>Trick</span>
-        </h3>
-
-        <p className={links}>
-          <a href="#">Home</a>·<a href="#">Blog</a>·<a href="#">Pricing</a>·
-          <a href="#">About</a>·<a href="#">Faq</a>·<a href="#">Contact</a>
-        </p>
-
-        <p className={companyName}>webdevtrick &copy; 2019</p>
+        <p className={companyName}>Myst and Orb Society &copy; {year}</p>
       </div>
-
       <div className={center}>
-        <div>
-          <span className={iconWrapper}><FaMapMarkerAlt size={20}/></span>
+        {/* <div>
+          <span className={iconWrapper}>
+            <FaMapMarkerAlt size={20} />
+          </span>
           <p>
             <span>21 Revolution Street</span> Delhi, India
           </p>
+        </div> */}
+
+        <div>
+          <span className={iconWrapper}>
+            <FaPhoneAlt size={20} />
+          </span>
+          <p>+1 855 675 1855</p>
         </div>
 
         <div>
-          <span className={iconWrapper}><FaPhoneAlt size={20}/></span>
-          <p>+1 555 123456</p>
-        </div>
-
-        <div>
-          <span className={iconWrapper}><FaEnvelope size={20}/></span>
+          <span className={iconWrapper}>
+            <FaEnvelope size={20} />
+          </span>
           <p>
-            <a href="mailto:support@company.com">contact@webdevtrick.com</a>
+            <a href="mailto:investigator@mystandorbsociety.com">investigator@mystandorbsociety.com</a>
           </p>
         </div>
       </div>
-
       <div className={right}>
-        <p className={footerCompanyAbout}>
-          <span>About the company</span>
-          Web Dev Trick is a blog for web designers, graphic designers, web
-          developers &amp; SEO Learner.
-        </p>
-
         <div className={footerIcons}>
-          <a href="#">
+          <a href="https://www.facebook.com/Myst-and-Orb-Society-100944138757824" target="_blank" rel="noopener noreferrer">
             <FaFacebookSquare />
           </a>
-          <a href="#">
+          <a href="https://twitter.com/Mystandorb" target="_blank" rel="noopener noreferrer">
             <FaTwitterSquare />
           </a>
-          <a href="#">
+          <a href="https://www.instagram.com/mystandorbsociety/" target="_blank" rel="noopener noreferrer">
             <FaInstagramSquare />
           </a>
         </div>

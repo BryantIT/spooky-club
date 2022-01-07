@@ -1,5 +1,5 @@
 .footer{
- background-color: #292c2f;
+ background-color: #19191a;
  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
  box-sizing: border-box;
  width: 100%;
@@ -7,7 +7,7 @@
  font: bold 16px sans-serif;
  position: fixed;
  bottom: 0;
- padding: 55px 50px;
+ padding: 30px 30px;
  margin-top: 80px;
 }
 
@@ -32,25 +32,12 @@
  color:  #5383d3;
 }
 
-
-.footer .links{
- color:  #ffffff;
- margin: 20px 0 12px;
- padding: 0;
-}
-
-.footer .links a{
- display:inline-block;
- line-height: 1.8;
- text-decoration: none;
- color:  inherit;
-}
-
 .footer .companyName{
- color:  #8f9296;
- font-size: 14px;
- font-weight: normal;
- margin: 0;
+  position: absolute;
+  color:  #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
 }
 
 
