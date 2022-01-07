@@ -162,3 +162,48 @@
 	color: transparent;
 	text-shadow: 0px 0px 1px #fff;
 }
+
+@media only screen and (max-width:600px) {
+	.container h2 {
+		position: absolute;
+		top: 25%;
+		line-height: 100px;
+		height: 100px;
+		margin-top: -50px;
+		font-size: 25px;
+		width: 100%;
+		text-align: center;
+		color: transparent;
+		animation: blurFadeInOut 3s ease-in backwards;
+	}
+}
+
+@media only screen and (max-width:400px) {
+	.container h2 {
+		position: absolute;
+		top: 25%;
+		line-height: 100px;
+		height: 100px;
+		margin-top: -50px;
+		font-size: 25px;
+		width: 100%;
+		text-align: center;
+		color: transparent;
+		animation: blurFadeInOut 3s ease-in backwards;
+	}
+}
+
+@media only screen and (max-width:768px) {
+	.container h2 {
+		position: absolute;
+		top: 25%;
+		line-height: 100px;
+		height: 100px;
+		margin-top: -50px;
+		font-size: 25px;
+		width: 100%;
+		text-align: center;
+		color: transparent;
+		animation: blurFadeInOut 3s ease-in backwards;
+	}
+}
