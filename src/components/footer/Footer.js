@@ -1,8 +1,27 @@
 import React from "react"
 import styles from "./styles.module.css"
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaInstagramSquare
+ } from 'react-icons/fa'
 
 const Footer = () => {
-  const { footer, left, links, companyName, center, right } = styles
+  const {
+    footer,
+    left,
+    links,
+    companyName,
+    center,
+    right,
+    iconWrapper,
+    footerCompanyAbout,
+    footerIcons
+   } = styles
+   
   return (
     <footer className={footer}>
       <div className={left}>
@@ -20,19 +39,19 @@ const Footer = () => {
 
       <div className={center}>
         <div>
-          <i className="fa fa-map-marker"></i>
+          <span className={iconWrapper}><FaMapMarkerAlt size={20}/></span>
           <p>
             <span>21 Revolution Street</span> Delhi, India
           </p>
         </div>
 
         <div>
-          <i className="fa fa-phone"></i>
+          <span className={iconWrapper}><FaPhoneAlt size={20}/></span>
           <p>+1 555 123456</p>
         </div>
 
         <div>
-          <i className="fa fa-envelope"></i>
+          <span className={iconWrapper}><FaEnvelope size={20}/></span>
           <p>
             <a href="mailto:support@company.com">contact@webdevtrick.com</a>
           </p>
@@ -40,24 +59,21 @@ const Footer = () => {
       </div>
 
       <div className={right}>
-        <p className="footer-company-about">
+        <p className={footerCompanyAbout}>
           <span>About the company</span>
           Web Dev Trick is a blog for web designers, graphic designers, web
           developers &amp; SEO Learner.
         </p>
 
-        <div className="footer-icons">
+        <div className={footerIcons}>
           <a href="#">
-            <i className="fa fa-facebook"></i>
+            <FaFacebookSquare />
           </a>
           <a href="#">
-            <i className="fa fa-twitter"></i>
+            <FaTwitterSquare />
           </a>
           <a href="#">
-            <i className="fa fa-linkedin"></i>
-          </a>
-          <a href="#">
-            <i className="fa fa-github"></i>
+            <FaInstagramSquare />
           </a>
         </div>
       </div>

@@ -99,7 +99,7 @@
  width: 20%;
 }
 
-.footer .footer-company-about{
+.footer .footerCompanyAbout{
  line-height: 20px;
  color:  #92999f;
  font-size: 13px;
@@ -107,7 +107,7 @@
  margin: 0;
 }
 
-.footer .footer-company-about span{
+.footer .footerCompanyAbout span{
  display: block;
  color:  #ffffff;
  font-size: 14px;
@@ -115,23 +115,21 @@
  margin-bottom: 20px;
 }
 
-.footer .footer-icons{
- margin-top: 25px;
+.footer .footerIcons{
+ margin-top: 10px;
 }
 
-.footer .footer-icons a{
+.footer .footerIcons a{
  display: inline-block;
  width: 35px;
  height: 35px;
  cursor: pointer;
  background-color:  #33383b;
  border-radius: 2px;
-
  font-size: 20px;
  color: #ffffff;
  text-align: center;
  line-height: 35px;
-
  margin-right: 3px;
  margin-bottom: 5px;
 }
@@ -161,4 +159,8 @@
  font-size: auto;
  }
 
+}
+
+.iconWrapper {
+  padding: 5px;
 }
