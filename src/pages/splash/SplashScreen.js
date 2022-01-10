@@ -43,7 +43,7 @@ const SplashScreen = ({ endSplash }) => {
               <Link to='/'></Link>
           </div> : null
           }
-        <span>We are the Myst and Orb Society</span>
+        <span>Myst and Orb Society</span>
         <br />
         {
           showButton ?
