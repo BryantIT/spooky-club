@@ -42,7 +42,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a href="#">Page</a>
+            <Link to="/user-access" onClick={handleMenuClick}>
+              Register/Login
+            </Link>
           </li>
           <li>
             <a href="#">Page</a>

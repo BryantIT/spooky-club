@@ -4,6 +4,7 @@ import Landing from "./pages/landing/Landing"
 import Main from "./pages/Main/Main"
 import SplashScreen from './pages/splash/SplashScreen'
 import About from './pages/about/About'
+import UserAccess from './pages/UserAccess/UserAccess'
 // Components
 import Navbar from './components/navbar/Navbar'
 import Logo from './components/logo/Logo'
@@ -84,6 +85,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Landing />} />
               <Route  exact path="/about" element={<About />} />
+              <Route  exact path="/user-access" element={<UserAccess />} />
             </Routes>
             <Footer />
           </Fragment> : <SplashScreen endSplash={endSplash} />
