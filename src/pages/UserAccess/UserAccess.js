@@ -1,42 +1,87 @@
-import React from "react"
-import "./styles.css"
+import React, { Fragment } from "react"
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaInstagramSquare,
+} from "react-icons/fa"
+import { RiLockPasswordFill } from "react-icons/ri"
+import { CgProfile } from "react-icons/cg"
+import styles from "./styles.module.css"
 
 const UserAccess = () => {
+  const { formWrapper, row, formContainer, titleContainer, rows, inputField, icon, colHalf, radioOption, selectOption, selectArrow, checkboxOption } = styles
   return (
-    <div className="signup">
-      <div className="signup-connect">
-        <h1>Create your account</h1>
-      <a href="#" className="btn btn-social btn-facebook">
-          <i className="fa fa-facebook"></i> Sign in with Facebook
-        </a>
-        <a href="#" className="btn btn-social btn-twitter">
-          <i className="fa fa-twitter"></i> Sign in with Twitter
-        </a>
-        <a href="#" className="btn btn-social btn-google">
-          <i className="fa fa-google"></i> Sign in with Google
-        </a>
-        <a href="#" className="btn btn-social btn-linkedin">
-          <i className="fa fa-linkedin"></i> Sign in with Linkedin
-        </a>
+    <div className={row}>
+      <div className={formWrapper}>
+    <div className={formContainer}>
+      <div className={titleContainer}>
+        <h2>Responsive Registration Form</h2>
       </div>
-      <div className="signup-classic">
-        <h2>Or use the classical way</h2>
-      <form className="form">
-          <fieldset className="username">
-            <input type="text" placeholder="username" />
-          </fieldset>
-          <fieldset className="email">
-            <input type="email" placeholder="email" />
-          </fieldset>
-          <fieldset className="password">
-            <input type="password" placeholder="password" />
-          </fieldset>
-          <button type="submit" className="btn">
-            sign up
-          </button>
-        </form>
+      <div className={rows}>
+        <div className="">
+          <form>
+            <div className={inputField}> <span><FaEnvelope className={icon} /></span>
+              <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div className={inputField}> <span><RiLockPasswordFill className={icon} /></span>
+              <input type="password" name="password" placeholder="Password" required />
+            </div>
+            <div className={inputField}> <span><RiLockPasswordFill className={icon} /></span>
+              <input type="password" name="password" placeholder="Re-type Password" required />
+            </div>
+            <div className={rows}>
+              <div className={colHalf}>
+                <div className={inputField}> <span><CgProfile className={icon} /></span>
+                  <input type="text" name="name" placeholder="First Name" />
+                </div>
+              </div>
+              <div className={colHalf}>
+                <div className={inputField}> <span><CgProfile className={icon} /></span>
+                  <input type="text" name="name" placeholder="Last Name" required />
+                </div>
+              </div>
+            </div>
+              	<div className={inputField}>
+                  <div className={radioOption}>
+                  <input type="radio" name="radiogroup1" id="rd1" />
+                  <label for="rd1">Male</label>
+                <input type="radio" name="radiogroup1" id="rd2" />
+                  <label for="rd2">Female</label>
+                  </div>
+                </div>
+                <div className={inputField}>
+                  <div className={selectOption}>
+                    <select>
+                      <option>Select a country</option>
+                      <option>Option 1</option>
+                      <option>Option 2</option>
+                    </select>
+                    <div className={selectArrow}></div>
+                  </div>
+                </div>
+              <div className={inputField}>
+                <div className={checkboxOption}>
+                	<input type="checkbox" id="cb1" />
+        			<label for="cb1">I agree with terms and conditions</label>
+                </div>
+              </div>
+              <div className={inputField}>
+                <div className={checkboxOption}>
+                	<input type="checkbox" id="cb2" />
+        			<label for="cb2">I want to receive the newsletter</label>
+                </div>
+              </div>
+            <input className="button" type="submit" value="Register" />
+          </form>
+        </div>
       </div>
     </div>
+  </div>
+    </div>
+
   )
 }
 
