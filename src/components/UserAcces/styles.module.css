@@ -33,7 +33,7 @@
   margin: 8% auto 0;
   position: relative;
   z-index: 1;
-  border-top: 5px solid #f5ba1a;
+  border-top: 5px solid #05bca9;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -121,7 +121,7 @@
   background: #fafafa;
 }
 .formWrapper input[type=submit] {
-  background: #f5ba1a;
+  background: #05bca9;
   height: 35px;
   line-height: 35px;
   width: 100%;
@@ -137,10 +137,10 @@
   transition: all 0.3s ease-in-out;
 }
 .formWrapper input[type=submit]:hover {
-  background: #e1a70a;
+  background: #6cf500;
 }
 .formWrapper input[type=submit]:focus {
-  background: #e1a70a;
+  background: #6cf500;
 }
 .formWrapper input[type=checkbox], .formWrapper input[type=radio] {
   border: 0;
@@ -256,18 +256,6 @@
   background: #fafafa;
   border-color: #000000;
   outline: none;
-}
-
-.select_arrow {
-  position: absolute;
-  top: calc(50% - 4px);
-  right: 15px;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  border-width: 8px 5px 0 5px;
-  border-style: solid;
-  border-color: #7b7b7b transparent transparent transparent;
 }
 
 .selectOption select:hover + .select_arrow, .selectOption select:focus + .select_arrow {
