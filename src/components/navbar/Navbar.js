@@ -1,21 +1,21 @@
-import React, { Fragment, useState } from "react"
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../auth/UserAuth'
-import { Link } from "react-router-dom"
-import styles from './styles.module.css'
+import React, { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../auth/UserAuth";
+import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
 
 const Navbar = () => {
   // Common
-  const { currentUser } = useAuth()
-  const navigate = useNavigate()
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
   // States
-  const [checkActive, setCheckActive] = useState(false)
+  const [checkActive, setCheckActive] = useState(false);
   // Styles
-  const { menuBtn, close, wrapper, active } = styles
+  const { menuBtn, close, wrapper, active } = styles;
 
   const handleMenuClick = () => {
-    setCheckActive(!checkActive)
-  }
+    setCheckActive(!checkActive);
+  };
   return (
     <Fragment>
       <input
@@ -24,11 +24,11 @@ const Navbar = () => {
         checked={checkActive}
         onClick={handleMenuClick}
       />
-    <label for={active} className={menuBtn}>
+      <label for={active} className={menuBtn}>
         <span></span>
       </label>
       <label for={active} className={close} onClick={handleMenuClick}></label>
-    <div className={wrapper}>
+      <div className={wrapper}>
         <ul>
           <li>
             <Link to="/" onClick={handleMenuClick}>
@@ -41,18 +41,20 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            {
-              !currentUser ? <Link to="/user-access" onClick={handleMenuClick}>
+            {!currentUser ? (
+              <Link to="/user-access" onClick={handleMenuClick}>
                 Register/Login
-              </Link> : <Link to="/logout" onClick={handleMenuClick}>
+              </Link>
+            ) : (
+              <Link to="/logout" onClick={handleMenuClick}>
                 Logout
               </Link>
-            }
+            )}
           </li>
         </ul>
       </div>
     </Fragment>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -21,7 +21,8 @@ import styles from "./styles.module.css"
 
 const UserAccess = () => {
   // Common
-  const { signup, googleSignup, currentUser } = useAuth()
+  const { signup, googleSignup, currentUser } = useAuth();
+
   const navigate = useNavigate()
   // States
   const [useEmailSignup, setUseEmailSignup] = useState(false)
