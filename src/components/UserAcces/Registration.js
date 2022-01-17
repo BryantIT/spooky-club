@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 // Components
 import Error from '../common/Error'
 import Validation from '../common/Validation'
@@ -20,8 +20,9 @@ import styles from "./styles.module.css"
 
 const UserAccess = () => {
   // Common
-  const { signup } = useAuth()
+  const { signup, googleSignup } = useAuth()
   // States
+  const [useEmailSignup, setUseEmailSignup] = useState(false)
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -46,8 +47,16 @@ const UserAccess = () => {
     selectOption,
     selectArrow,
     checkboxOption,
+    buttonWrapper,
     button,
   } = styles
+
+  const handleEmailSignup = () => {
+    setUseEmailSignup(!useEmailSignup)
+  }
+  const handleGoogleSingup = () => {
+    googleSignup()
+  }
 
   const handleChange = (event) => {
     const value = event.target.value
@@ -118,65 +127,75 @@ const UserAccess = () => {
           </div>
           <div className={rows}>
             <div className="">
-              <form onSubmit={handleSubmit}>
-                <div className={inputField}>
-                  {" "}
-                  <span>
-                    <FaEnvelope className={icon} />
-                  </span>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                    onBlur={handleVerifyEmail}
-                    required
-                  />
-                </div>
-                {
-                  !isEmailValid ? <Error message='Must be a valid email' /> : null
-                }
-                <div className={inputField}>
-                  {" "}
-                  <span>
-                    <RiLockPasswordFill className={icon} />
-                  </span>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className={inputField}>
-                  {" "}
-                  <span>
-                    <RiLockPasswordFill className={icon} />
-                  </span>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Re-type Password"
-                    onChange={handleConfirmPassword}
-                    onBlur={checkPasswordMatch}
-                    required
-                  />
-                </div>
-                {
-                  passwordMatches ? null : <Error message={passwordMatchWarning}/>
-              }
-                {/* <div className={inputField}>
-                  <div className={checkboxOption}>
-                    <input type="checkbox" id="cb1" onChange={handleChange} name='tosConfirmed'/>
-                    <label htmlFor="cb1">I agree with terms and conditions</label>
+              {
+                useEmailSignup ?
+                <form onSubmit={handleSubmit}>
+                  <div className={inputField}>
+                    {" "}
+                    <span>
+                      <FaEnvelope className={icon} />
+                    </span>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      onChange={handleChange}
+                      onBlur={handleVerifyEmail}
+                      required
+                    />
                   </div>
-                </div> */}
-                <input className={button} type="submit" value="Register" disabled={isDisabled}/>
-                {
-                  signupErrorMessage ? <Error message={signupErrorMessage}/> : null
+                  {
+                    !isEmailValid ? <Error message='Must be a valid email' /> : null
+                  }
+                  <div className={inputField}>
+                    {" "}
+                    <span>
+                      <RiLockPasswordFill className={icon} />
+                    </span>
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className={inputField}>
+                    {" "}
+                    <span>
+                      <RiLockPasswordFill className={icon} />
+                    </span>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="Re-type Password"
+                      onChange={handleConfirmPassword}
+                      onBlur={checkPasswordMatch}
+                      required
+                    />
+                  </div>
+                  {
+                    passwordMatches ? null : <Error message={passwordMatchWarning}/>
+                }
+                  {/* <div className={inputField}>
+                    <div className={checkboxOption}>
+                      <input type="checkbox" id="cb1" onChange={handleChange} name='tosConfirmed'/>
+                      <label htmlFor="cb1">I agree with terms and conditions</label>
+                    </div>
+                  </div> */}
+                  <input className={button} type="submit" value="Register" disabled={isDisabled}/>
+                  <div className={buttonWrapper}>
+                    <button className={button} onClick={handleEmailSignup}>Cancel</button>
+                </div>
+                  {
+                    signupErrorMessage ? <Error message={signupErrorMessage}/> : null
+                }
+              </form> :
+              <div className={buttonWrapper}>
+                <button className={button} onClick={handleEmailSignup}>Email</button>
+              <button className={button} onClick={handleGoogleSingup}>Google</button>
+            </div>
               }
-              </form>
             </div>
           </div>
         </div>

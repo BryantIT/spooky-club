@@ -3,10 +3,13 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut
+  signOut,
+  signInWithPopup,
+  GoogleAuthProvider
 } from "firebase/auth";
-import { auth, db } from '../firebase-config'
+import { auth, db, googleProvider } from '../firebase-config'
 import { getDoc, doc } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = React.createContext()
 
@@ -15,6 +18,7 @@ export const useAuth = () => {
 }
 
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
   const [userInfo, setUserInfo] = useState()
@@ -26,6 +30,22 @@ export const AuthProvider = ({ children }) => {
 
   const signin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  const googleSignup = () => {
+    signInWithPopup(auth, googleProvider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result)
+      const token = credential.accessToken
+      const user = result.user
+      setCurrentUser(user)
+      navigate('/')
+    }).catch((error) => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      const email = error.email
+      const credential = GoogleAuthProvider.credentialFromError(error)
+    })
   }
 
   const signout = () => {
@@ -58,7 +78,8 @@ export const AuthProvider = ({ children }) => {
     signup,
     signin,
     signout,
-    userInfo
+    userInfo,
+    googleSignup
   }
 
   return (
