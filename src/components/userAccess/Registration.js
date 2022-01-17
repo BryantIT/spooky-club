@@ -1,11 +1,11 @@
-import React, { useState, Fragment, useEffect } from "react"
-import { useNavigate } from 'react-router-dom'
+import React, { useState, Fragment, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // Components
-import Error from '../common/Error'
-import Validation from '../common/Validation'
-import ValidationSuccess from '../common/ValidationSuccess'
+import Error from "../common/Error";
+import Validation from "../common/Validation";
+import ValidationSuccess from "../common/ValidationSuccess";
 // Firebase
-import { useAuth } from '../../auth/UserAuth'
+import { useAuth } from "../../auth/UserAuth";
 // Styles
 import {
   FaMapMarkerAlt,
@@ -14,29 +14,29 @@ import {
   FaFacebookSquare,
   FaTwitterSquare,
   FaInstagramSquare,
-} from "react-icons/fa"
-import { RiLockPasswordFill } from "react-icons/ri"
-import { CgProfile } from "react-icons/cg"
-import styles from "./styles.module.css"
+} from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
+import styles from "./styles.module.css";
 
 const UserAccess = () => {
   // Common
   const { signup, googleSignup, currentUser } = useAuth();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // States
-  const [useEmailSignup, setUseEmailSignup] = useState(false)
+  const [useEmailSignup, setUseEmailSignup] = useState(false);
   const [loginData, setLoginData] = useState({
-    email: '',
-    password: ''
-  })
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [passwordMatches, setPasswordMatches] = useState(true)
-  const [passwordMatchWarning, setPasswordMatchWarning] = useState('')
-  const [isDisabled, setIsDisabled] = useState(false)
+    email: "",
+    password: "",
+  });
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordMatches, setPasswordMatches] = useState(true);
+  const [passwordMatchWarning, setPasswordMatchWarning] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
   // const [tosConfirmed, setTosConfirmed] = useState(false)
-  const [isEmailValid, setIsEmailValid] = useState(true)
-  const [signupErrorMessage, setSignupErrorMessage] = useState('')
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [signupErrorMessage, setSignupErrorMessage] = useState("");
   // Styles
   const {
     formWrapper,
@@ -52,45 +52,45 @@ const UserAccess = () => {
     checkboxOption,
     buttonWrapper,
     button,
-  } = styles
+  } = styles;
 
   useEffect(() => {
     if (currentUser) {
-      navigate('/')
+      navigate("/");
     }
-  }, [])
+  }, []);
 
   const handleEmailSignup = () => {
-    setUseEmailSignup(!useEmailSignup)
-  }
+    setUseEmailSignup(!useEmailSignup);
+  };
   const handleGoogleSingup = () => {
-    googleSignup()
-  }
+    googleSignup();
+  };
 
   const handleChange = (event) => {
-    const value = event.target.value
-    const name = event.target.name
+    const value = event.target.value;
+    const name = event.target.name;
     setLoginData({
       ...loginData,
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
   const handleConfirmPassword = (event) => {
-    const value = event.target.value
-    setConfirmPassword(value)
-  }
+    const value = event.target.value;
+    setConfirmPassword(value);
+  };
 
   const checkPasswordMatch = (event) => {
-    const value = event.target.value
+    const value = event.target.value;
     if (loginData.password !== value) {
-      setPasswordMatches(false)
-      setPasswordMatchWarning('Passwords do not match')
+      setPasswordMatches(false);
+      setPasswordMatchWarning("Passwords do not match");
     } else {
-      setPasswordMatches(true)
-      setPasswordMatchWarning('')
+      setPasswordMatches(true);
+      setPasswordMatchWarning("");
     }
-  }
+  };
 
   // const handleTosConfirmed = (event) => {
   //   const value = event.target.checked
@@ -98,34 +98,41 @@ const UserAccess = () => {
   // }
 
   const handleVerifyEmail = (event) => {
-    const value = event.target.value
+    const value = event.target.value;
     if (value) {
       const emailCheck = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         value
-      )
-      setIsEmailValid(emailCheck)
+      );
+      setIsEmailValid(emailCheck);
     }
-  }
+  };
   const createFirebaseUser = async () => {
     try {
-      await signup(loginData.email, loginData.password)
-      .then(console.log('Setting User'))
+      await signup(loginData.email, loginData.password).then(
+        navigate("/profile")
+      );
     } catch (error) {
-      const stringed = JSON.stringify(error.message)
-      const split = stringed.split(':')
-      const message = split[1].replace('"', '')
-      setSignupErrorMessage(message)
+      const stringed = JSON.stringify(error.message);
+      const split = stringed.split(":");
+      const message = split[1].replace('"', "");
+      setSignupErrorMessage(message);
     }
-  }
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    let isReady = false
-    if (passwordMatches && loginData && loginData.email && loginData.password && isEmailValid) {
-      setIsDisabled(true)
-      createFirebaseUser()
+    event.preventDefault();
+    let isReady = false;
+    if (
+      passwordMatches &&
+      loginData &&
+      loginData.email &&
+      loginData.password &&
+      isEmailValid
+    ) {
+      setIsDisabled(true);
+      createFirebaseUser();
     }
-  }
+  };
 
   return (
     <div className={row}>
@@ -136,8 +143,7 @@ const UserAccess = () => {
           </div>
           <div className={rows}>
             <div className="">
-              {
-                useEmailSignup ?
+              {useEmailSignup ? (
                 <form onSubmit={handleSubmit}>
                   <div className={inputField}>
                     {" "}
@@ -153,9 +159,9 @@ const UserAccess = () => {
                       required
                     />
                   </div>
-                  {
-                    !isEmailValid ? <Error message='Must be a valid email' /> : null
-                  }
+                  {!isEmailValid ? (
+                    <Error message="Must be a valid email" />
+                  ) : null}
                   <div className={inputField}>
                     {" "}
                     <span>
@@ -183,34 +189,46 @@ const UserAccess = () => {
                       required
                     />
                   </div>
-                  {
-                    passwordMatches ? null : <Error message={passwordMatchWarning}/>
-                }
+                  {passwordMatches ? null : (
+                    <Error message={passwordMatchWarning} />
+                  )}
                   {/* <div className={inputField}>
                     <div className={checkboxOption}>
                       <input type="checkbox" id="cb1" onChange={handleChange} name='tosConfirmed'/>
                       <label htmlFor="cb1">I agree with terms and conditions</label>
                     </div>
                   </div> */}
-                  <input className={button} type="submit" value="Register" disabled={isDisabled}/>
+                  <input
+                    className={button}
+                    type="submit"
+                    value="Register"
+                    disabled={isDisabled}
+                  />
                   <div className={buttonWrapper}>
-                    <button className={button} onClick={handleEmailSignup}>Cancel</button>
+                    <button className={button} onClick={handleEmailSignup}>
+                      Cancel
+                    </button>
+                  </div>
+                  {signupErrorMessage ? (
+                    <Error message={signupErrorMessage} />
+                  ) : null}
+                </form>
+              ) : (
+                <div className={buttonWrapper}>
+                  <button className={button} onClick={handleEmailSignup}>
+                    Email
+                  </button>
+                  <button className={button} onClick={handleGoogleSingup}>
+                    Google
+                  </button>
                 </div>
-                  {
-                    signupErrorMessage ? <Error message={signupErrorMessage}/> : null
-                }
-              </form> :
-              <div className={buttonWrapper}>
-                <button className={button} onClick={handleEmailSignup}>Email</button>
-              <button className={button} onClick={handleGoogleSingup}>Google</button>
-            </div>
-              }
+              )}
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserAccess
+export default UserAccess;

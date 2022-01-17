@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
       const token = credential.accessToken
       const user = result.user
       setCurrentUser(user)
-      navigate('/')
+      navigate('/profile')
     }).catch((error) => {
       const errorCode = error.code
       const errorMessage = error.message
