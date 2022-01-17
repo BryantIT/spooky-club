@@ -1,112 +1,130 @@
 .container {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 0;
-	background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-	background: -moz-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-	background: -ms-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-	background: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
-}
-.content {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0px;
-	top: 0px;
-	z-index: 1000;
-}
-.container h2 {
-	position: absolute;
-	top: 25%;
-	line-height: 100px;
-	height: 100px;
-	margin-top: -50px;
-	font-size: 100px;
-	width: 100%;
-	text-align: center;
-	color: transparent;
-	animation: blurFadeInOut 3s ease-in backwards;
-}
-.container h2.frame1 {
-	animation-delay: 0s;
-}
-.container h2.frame2 {
-	animation-delay: 2.5s;
-}
-.container h2.frame3 {
-	animation-delay: 5s;
-}
-.container h2.frame4 {
-	font-size: 100px;
-	animation-delay: 7s;
-}
-.container h2.frame5 {
-	animation: none;
-	color: transparent;
-	text-shadow: 0px 0px 1px #fff;
-}
-.container h2.frame5 span {
-	animation: blurFadeIn 3s ease-in 12s backwards;
-	color: transparent;
-	text-shadow: 0px 0px 1px #fff;
-}
-.container h2.frame5 span:nth-child(2) {
-	animation-delay: 13s;
-}
-.container h2.frame5 span:nth-child(3) {
-	animation-delay: 14s;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+  background: -moz-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+  background: -ms-radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
+  background: radial-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3) 35%, rgba(0, 0, 0, 0.7));
 }
 
-@keyframes blurFadeInOut{
-	0%{
-		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
-		transform: scale(0.9);
-	}
-	20%,75%{
-		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
-		transform: scale(1);
-	}
-	100%{
-		opacity: 0;
-		text-shadow: 0px 0px 50px #fff;
-		transform: scale(0);
-	}
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
 }
-@keyframes blurFadeIn{
-	0%{
-		opacity: 0;
-		text-shadow: 0px 0px 40px #fff;
-		transform: scale(1.3);
-	}
-	50%{
-		opacity: 0.5;
-		text-shadow: 0px 0px 10px #fff;
-		transform: scale(1.1);
-	}
-	100%{
-		opacity: 1;
-		text-shadow: 0px 0px 1px #fff;
-		transform: scale(1);
-	}
+
+.container h2 {
+  position: absolute;
+  top: 25%;
+  line-height: 100px;
+  height: 100px;
+  margin-top: -50px;
+  font-size: 100px;
+  width: 100%;
+  text-align: center;
+  color: transparent;
+  animation: blurFadeInOut 3s ease-in backwards;
 }
-@keyframes fadeInBack{
-	0%{
-		opacity: 0;
-		transform: scale(0);
-	}
-	50%{
-		opacity: 0.4;
-		transform: scale(2);
-	}
-	100%{
-		opacity: 0.2;
-		transform: scale(5);
-	}
+
+.container h2.frame1 {
+  animation-delay: 0s;
+}
+
+.container h2.frame2 {
+  animation-delay: 2.5s;
+}
+
+.container h2.frame3 {
+  animation-delay: 5s;
+}
+
+.container h2.frame4 {
+  font-size: 100px;
+  animation-delay: 7s;
+}
+
+.container h2.frame5 {
+  animation: none;
+  color: transparent;
+  text-shadow: 0px 0px 1px #fff;
+}
+
+.container h2.frame5 span {
+  animation: blurFadeIn 3s ease-in 12s backwards;
+  color: transparent;
+  text-shadow: 0px 0px 1px #fff;
+}
+
+.container h2.frame5 span:nth-child(2) {
+  animation-delay: 13s;
+}
+
+.container h2.frame5 span:nth-child(3) {
+  animation-delay: 14s;
+}
+
+@keyframes blurFadeInOut {
+  0% {
+    opacity: 0;
+    text-shadow: 0px 0px 40px #fff;
+    transform: scale(0.9);
+  }
+
+  20%, 75% {
+    opacity: 1;
+    text-shadow: 0px 0px 1px #fff;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    text-shadow: 0px 0px 50px #fff;
+    transform: scale(0);
+  }
+}
+
+@keyframes blurFadeIn {
+  0% {
+    opacity: 0;
+    text-shadow: 0px 0px 40px #fff;
+    transform: scale(1.3);
+  }
+
+  50% {
+    opacity: 0.5;
+    text-shadow: 0px 0px 10px #fff;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0px 0px 1px #fff;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInBack {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(2);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(5);
+  }
 }
 
 .btn {
@@ -127,12 +145,10 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgb(0, 5, 238),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgb(0, 5, 238),
+      transparent);
   transition: all 650ms;
 }
 
@@ -141,69 +157,70 @@
 }
 
 .logo {
-	margin-top: 2px;
-	z-index: 600;
-	position: relative;
+  margin-top: 2px;
+  z-index: 600;
+  position: relative;
 }
+
 .logo a {
-	display: block;
-	margin-left: auto;
+  display: block;
+  margin-left: auto;
   margin-right: auto;
-	padding: 0;
-	border: none;
-	font: 0/0 a;
-	text-shadow: none;
-	color: transparent;
-	width: 25vh;
-	height: 25vh;
-	background: url("../../images/sitelogo.png") no-repeat center;
-	background-size: 25vh 25vh;
-	animation: blurFadeIn 3s ease-in 6s backwards;
-	color: transparent;
-	text-shadow: 0px 0px 1px #fff;
+  padding: 0;
+  border: none;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  width: 25vh;
+  height: 25vh;
+  background: url("../../images/sitelogo.png") no-repeat center;
+  background-size: 25vh 25vh;
+  animation: blurFadeIn 3s ease-in 6s backwards;
+  color: transparent;
+  text-shadow: 0px 0px 1px #fff;
 }
 
 @media only screen and (max-width:600px) {
-	.container h2 {
-		position: absolute;
-		top: 25%;
-		line-height: 100px;
-		height: 100px;
-		margin-top: -50px;
-		font-size: 25px;
-		width: 100%;
-		text-align: center;
-		color: transparent;
-		animation: blurFadeInOut 3s ease-in backwards;
-	}
+  .container h2 {
+    position: absolute;
+    top: 25%;
+    line-height: 100px;
+    height: 100px;
+    margin-top: -50px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    color: transparent;
+    animation: blurFadeInOut 3s ease-in backwards;
+  }
 }
 
 @media only screen and (max-width:400px) {
-	.container h2 {
-		position: absolute;
-		top: 25%;
-		line-height: 100px;
-		height: 100px;
-		margin-top: -50px;
-		font-size: 25px;
-		width: 100%;
-		text-align: center;
-		color: transparent;
-		animation: blurFadeInOut 3s ease-in backwards;
-	}
+  .container h2 {
+    position: absolute;
+    top: 25%;
+    line-height: 100px;
+    height: 100px;
+    margin-top: -50px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    color: transparent;
+    animation: blurFadeInOut 3s ease-in backwards;
+  }
 }
 
 @media only screen and (max-width:768px) {
-	.container h2 {
-		position: absolute;
-		top: 25%;
-		line-height: 100px;
-		height: 100px;
-		margin-top: -50px;
-		font-size: 25px;
-		width: 100%;
-		text-align: center;
-		color: transparent;
-		animation: blurFadeInOut 3s ease-in backwards;
-	}
+  .container h2 {
+    position: absolute;
+    top: 25%;
+    line-height: 100px;
+    height: 100px;
+    margin-top: -50px;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    color: transparent;
+    animation: blurFadeInOut 3s ease-in backwards;
+  }
 }

@@ -1,22 +1,21 @@
-import React, { Fragment, useState } from "react"
-// import {
-//   Row,
-//   Header,
-//   NavWrap,
-//   MainNav,
-//   StyledLink,
-//   SignUpLink,
-// } from "./Styles";
-import { Link } from "react-router-dom"
-import styles from './styles.module.css'
+import React, { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../auth/UserAuth";
+import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
 
 const Navbar = () => {
-  const [checkActive, setCheckActive] = useState(false)
-  const { menuBtn, close, wrapper, active } = styles
+  // Common
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  // States
+  const [checkActive, setCheckActive] = useState(false);
+  // Styles
+  const { menuBtn, close, wrapper, active } = styles;
 
   const handleMenuClick = () => {
-    setCheckActive(!checkActive)
-  }
+    setCheckActive(!checkActive);
+  };
   return (
     <Fragment>
       <input
@@ -25,11 +24,11 @@ const Navbar = () => {
         checked={checkActive}
         onClick={handleMenuClick}
       />
-    <label for={active} className={menuBtn}>
+      <label for={active} className={menuBtn}>
         <span></span>
       </label>
       <label for={active} className={close} onClick={handleMenuClick}></label>
-    <div className={wrapper}>
+      <div className={wrapper}>
         <ul>
           <li>
             <Link to="/" onClick={handleMenuClick}>
@@ -42,18 +41,20 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a href="#">Page</a>
-          </li>
-          <li>
-            <a href="#">Page</a>
-          </li>
-          <li>
-            <a href="#">Page</a>
+            {!currentUser ? (
+              <Link to="/user-access" onClick={handleMenuClick}>
+                Register/Login
+              </Link>
+            ) : (
+              <Link to="/logout" onClick={handleMenuClick}>
+                Logout
+              </Link>
+            )}
           </li>
         </ul>
       </div>
     </Fragment>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
