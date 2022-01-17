@@ -11,7 +11,7 @@ const Logout = () => {
     navigate('/')
   }, [])
   return (
-    <div></div>
+    null
   )
 }
 
