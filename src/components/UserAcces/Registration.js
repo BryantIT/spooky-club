@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Error from '../common/Error'
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -63,7 +64,6 @@ const UserAccess = () => {
         value
       )
       setIsEmailValid(emailCheck)
-      console.log('emailCheck', emailCheck)
     }
   }
 
@@ -91,6 +91,9 @@ const UserAccess = () => {
                     required
                   />
                 </div>
+                {
+                  !isEmailValid ? <Error message='Must be a valid email' /> : null
+                }
                 <div className={inputField}>
                   {" "}
                   <span>
