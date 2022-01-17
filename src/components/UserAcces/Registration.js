@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import Error from '../common/Error'
+import Validation from '../common/Validation'
+import ValidationSuccess from '../common/ValidationSuccess'
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -18,6 +20,8 @@ const UserAccess = () => {
     password: ''
   })
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [passwordMatches, setPasswordMatches] = useState(true)
+  const [passwordMatchWarning, setPasswordMatchWarning] = useState('')
   // const [tosConfirmed, setTosConfirmed] = useState(false)
   const [isEmailValid, setIsEmailValid] = useState(true)
   const {
@@ -50,6 +54,17 @@ const UserAccess = () => {
   const handleConfirmPassword = (event) => {
     const value = event.target.value
     setConfirmPassword(value)
+  }
+
+  const checkPasswordMatch = (event) => {
+    const value = event.target.value
+    if (loginData.password !== value) {
+      setPasswordMatches(false)
+      setPasswordMatchWarning('Passwords do not match')
+    } else {
+      setPasswordMatches(true)
+      setPasswordMatchWarning('')
+    }
   }
 
   // const handleTosConfirmed = (event) => {
@@ -117,9 +132,13 @@ const UserAccess = () => {
                     name="confirmPassword"
                     placeholder="Re-type Password"
                     onChange={handleConfirmPassword}
+                    onBlur={checkPasswordMatch}
                     required
                   />
                 </div>
+                {
+                  passwordMatches ? null : <Error message={passwordMatchWarning}/>
+              }
                 {/* <div className={inputField}>
                   <div className={checkboxOption}>
                     <input type="checkbox" id="cb1" onChange={handleChange} name='tosConfirmed'/>
