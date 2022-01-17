@@ -17,7 +17,8 @@ const UserAccess = () => {
     password: ''
   })
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [tosConfirmed, setTosConfirmed] = useState(false)
+  // const [tosConfirmed, setTosConfirmed] = useState(false)
+  const [isEmailValid, setIsEmailValid] = useState(true)
   const {
     formWrapper,
     row,
@@ -50,11 +51,22 @@ const UserAccess = () => {
     setConfirmPassword(value)
   }
 
-  const handleTosConfirmed = (event) => {
-    const value = event.target.checked
-    setTosConfirmed(value)
+  // const handleTosConfirmed = (event) => {
+  //   const value = event.target.checked
+  //   setTosConfirmed(value)
+  // }
+
+  const handleVerifyEmail = (event) => {
+    const value = event.target.value
+    if (value) {
+      const emailCheck = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        value
+      )
+      setIsEmailValid(emailCheck)
+      console.log('emailCheck', emailCheck)
+    }
   }
-  
+
   return (
     <div className={row}>
       <div className={formWrapper}>
@@ -75,6 +87,7 @@ const UserAccess = () => {
                     name="email"
                     placeholder="Email"
                     onChange={handleChange}
+                    onBlur={handleVerifyEmail}
                     required
                   />
                 </div>
@@ -104,12 +117,12 @@ const UserAccess = () => {
                     required
                   />
                 </div>
-                <div className={inputField}>
+                {/* <div className={inputField}>
                   <div className={checkboxOption}>
                     <input type="checkbox" id="cb1" onChange={handleChange} name='tosConfirmed'/>
                     <label for="cb1">I agree with terms and conditions</label>
                   </div>
-                </div>
+                </div> */}
                 <input className={button} type="submit" value="Register" />
               </form>
             </div>
