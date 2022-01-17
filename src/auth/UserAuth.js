@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { auth, db, googleProvider } from '../firebase-config'
 import { getDoc, doc } from 'firebase/firestore'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 const AuthContext = React.createContext()
 
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   const signout = () => {
-    return signOut()
+    return signOut(auth)
   }
 
   useEffect(() => {

@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from "react"
+import React, { useState, Fragment, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 // Components
 import Error from '../common/Error'
 import Validation from '../common/Validation'
@@ -20,7 +21,8 @@ import styles from "./styles.module.css"
 
 const UserAccess = () => {
   // Common
-  const { signup, googleSignup } = useAuth()
+  const { signup, googleSignup, currentUser } = useAuth()
+  const navigate = useNavigate()
   // States
   const [useEmailSignup, setUseEmailSignup] = useState(false)
   const [loginData, setLoginData] = useState({
@@ -50,6 +52,12 @@ const UserAccess = () => {
     buttonWrapper,
     button,
   } = styles
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/')
+    }
+  }, [])
 
   const handleEmailSignup = () => {
     setUseEmailSignup(!useEmailSignup)

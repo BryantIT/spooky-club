@@ -9,6 +9,8 @@ import UserAccess from './pages/UserAccess/UserAccess'
 import Navbar from './components/navbar/Navbar'
 import Logo from './components/logo/Logo'
 import Footer from './components/footer/Footer'
+import Logout from './components/common/Logout'
+import PrivateRoute from './components/common/PrivateRoute'
 // Styles
 import "./App.css"
 // Packages
@@ -86,6 +88,12 @@ function App() {
               <Route exact path="/" element={<Landing />} />
               <Route  exact path="/about" element={<About />} />
               <Route  exact path="/user-access" element={<UserAccess />} />
+            <Route exact path="/logout" element={
+                <PrivateRoute>
+                  <Logout />
+                </PrivateRoute>
+              }
+            />
             </Routes>
             <Footer />
           </Fragment> : <SplashScreen endSplash={endSplash} />

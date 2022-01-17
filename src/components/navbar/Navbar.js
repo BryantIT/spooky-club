@@ -1,17 +1,16 @@
 import React, { Fragment, useState } from "react"
-// import {
-//   Row,
-//   Header,
-//   NavWrap,
-//   MainNav,
-//   StyledLink,
-//   SignUpLink,
-// } from "./Styles";
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../auth/UserAuth'
 import { Link } from "react-router-dom"
 import styles from './styles.module.css'
 
 const Navbar = () => {
+  // Common
+  const { currentUser } = useAuth()
+  const navigate = useNavigate()
+  // States
   const [checkActive, setCheckActive] = useState(false)
+  // Styles
   const { menuBtn, close, wrapper, active } = styles
 
   const handleMenuClick = () => {
@@ -42,15 +41,13 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/user-access" onClick={handleMenuClick}>
-              Register/Login
-            </Link>
-          </li>
-          <li>
-            <a href="#">Page</a>
-          </li>
-          <li>
-            <a href="#">Page</a>
+            {
+              !currentUser ? <Link to="/user-access" onClick={handleMenuClick}>
+                Register/Login
+              </Link> : <Link to="/logout" onClick={handleMenuClick}>
+                Logout
+              </Link>
+            }
           </li>
         </ul>
       </div>

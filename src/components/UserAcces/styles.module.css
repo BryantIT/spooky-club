@@ -407,5 +407,9 @@
 }
 
 .button {
-  
+  -webkit-box-flex: 1 1 0;
+  -moz-box-flex:  1 1 0;
+  -webkit-flex:  1 1 0;
+  -ms-flex:  1 1 0;
+  flex:  1 1 0;
 }
