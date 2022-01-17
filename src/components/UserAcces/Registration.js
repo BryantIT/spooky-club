@@ -1,7 +1,11 @@
 import React, { useState } from "react"
+// Components
 import Error from '../common/Error'
 import Validation from '../common/Validation'
 import ValidationSuccess from '../common/ValidationSuccess'
+// Firebase
+import { useAuth } from '../../auth/UserAuth'
+// Styles
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -15,6 +19,9 @@ import { CgProfile } from "react-icons/cg"
 import styles from "./styles.module.css"
 
 const UserAccess = () => {
+  // Common
+  const { signup } = useAuth()
+  // States
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -22,8 +29,11 @@ const UserAccess = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [passwordMatches, setPasswordMatches] = useState(true)
   const [passwordMatchWarning, setPasswordMatchWarning] = useState('')
+  const [isDisabled, setIsDisabled] = useState(false)
   // const [tosConfirmed, setTosConfirmed] = useState(false)
   const [isEmailValid, setIsEmailValid] = useState(true)
+  const [signupErrorMessage, setSignupErrorMessage] = useState('')
+  // Styles
   const {
     formWrapper,
     row,
@@ -46,10 +56,7 @@ const UserAccess = () => {
       ...loginData,
       [name]: value
     })
-    console.log(event.target.checked)
   }
-
-  console.log('userData', loginData)
 
   const handleConfirmPassword = (event) => {
     const value = event.target.value
@@ -81,6 +88,26 @@ const UserAccess = () => {
       setIsEmailValid(emailCheck)
     }
   }
+  const createFirebaseUser = async () => {
+    try {
+      await signup(loginData.email, loginData.password)
+      .then(console.log('Setting User'))
+    } catch (error) {
+      const stringed = JSON.stringify(error.message)
+      const split = stringed.split(':')
+      const message = split[1].replace('"', '')
+      setSignupErrorMessage(message)
+    }
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    let isReady = false
+    if (passwordMatches && loginData && loginData.email && loginData.password && isEmailValid) {
+      setIsDisabled(true)
+      createFirebaseUser()
+    }
+  }
 
   return (
     <div className={row}>
@@ -91,7 +118,7 @@ const UserAccess = () => {
           </div>
           <div className={rows}>
             <div className="">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className={inputField}>
                   {" "}
                   <span>
@@ -142,10 +169,13 @@ const UserAccess = () => {
                 {/* <div className={inputField}>
                   <div className={checkboxOption}>
                     <input type="checkbox" id="cb1" onChange={handleChange} name='tosConfirmed'/>
-                    <label for="cb1">I agree with terms and conditions</label>
+                    <label htmlFor="cb1">I agree with terms and conditions</label>
                   </div>
                 </div> */}
-                <input className={button} type="submit" value="Register" />
+                <input className={button} type="submit" value="Register" disabled={isDisabled}/>
+                {
+                  signupErrorMessage ? <Error message={signupErrorMessage}/> : null
+              }
               </form>
             </div>
           </div>
