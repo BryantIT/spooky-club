@@ -11,7 +11,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import styles from "./styles.module.css";
 
-const UserAccess = () => {
+const UserInfo = () => {
   const {
     formWrapper,
     row,
@@ -131,4 +131,4 @@ const UserAccess = () => {
   );
 };
 
-export default UserAccess;
+export default UserInfo;
