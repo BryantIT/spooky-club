@@ -21,7 +21,7 @@ import styles from "./styles.module.css";
 
 const Signin = ({ handleBack }) => {
   // Common
-  const { currentUser } = useAuth();
+  const { currentUser, googleSignup, signin } = useAuth();
   const navigate = useNavigate();
   // States
   const [useEmailSignin, setUseEmailSignin] = useState(false);
@@ -58,7 +58,7 @@ const Signin = ({ handleBack }) => {
   };
 
   const handleGoogleSingin = () => {
-    console.log("here");
+    googleSignup()
   };
 
   const handleChange = (event) => {
@@ -73,6 +73,10 @@ const Signin = ({ handleBack }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     let isReady = false;
+    signin(signinData.email, signinData.password)
+    .then((err) => {
+      navigate("/profile")
+    });
   };
 
   return (
@@ -112,7 +116,7 @@ const Signin = ({ handleBack }) => {
                       required
                     />
                   </div>
-                  <input className={button} type="submit" value="Register" />
+                  <input className={button} type="submit" value="Submit" />
                   <div className={buttonWrapper}>
                     <button className={button} onClick={handleEmailSignin}>
                       Cancel
