@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 // Components
 import Error from "../common/Error";
 import Validation from "../common/Validation";
@@ -19,7 +19,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import styles from "./styles.module.css";
 
-const Signin = () => {
+const Signin = ({ handleBack }) => {
   // Common
   const { currentUser } = useAuth();
   const navigate = useNavigate();
@@ -44,6 +44,7 @@ const Signin = () => {
     checkboxOption,
     buttonWrapper,
     button,
+    linkWrapper,
   } = styles;
 
   useEffect(() => {
@@ -119,13 +120,20 @@ const Signin = () => {
                   </div>
                 </form>
               ) : (
-                <div className={buttonWrapper}>
-                  <button className={button} onClick={handleEmailSignin}>
-                    Email
-                  </button>
-                  <button className={button} onClick={handleGoogleSingin}>
-                    Google
-                  </button>
+                <div>
+                  <div className={buttonWrapper}>
+                    <button className={button} onClick={handleEmailSignin}>
+                      Email
+                    </button>
+                    <button className={button} onClick={handleGoogleSingin}>
+                      Google
+                    </button>
+                  </div>
+                  <div className={linkWrapper}>
+                    <Link to="#" onClick={() => handleBack("back")}>
+                      Already a user?
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>

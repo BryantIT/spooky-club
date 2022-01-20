@@ -86,8 +86,8 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Landing />} />
               <Route exact path="/about" element={<About />} />
-              <Route exact path="/user-access" element={<UserAccess />} />
-              <Route exact path="/signin" element={<Signin />} />
+              <Route exact path="/signup" element={<UserAccess />} />
+              <Route exact path="/signin" element={<UserAccess />} />
               <Route
                 exact
                 path="/logout"

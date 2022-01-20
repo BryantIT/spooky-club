@@ -42,21 +42,14 @@ const Navbar = () => {
           </li>
           <li>
             {!currentUser ? (
-              <Link to="/user-access" onClick={handleMenuClick}>
-                Register
+              <Link to="/signup" onClick={handleMenuClick}>
+                Register/Signin
               </Link>
             ) : (
               <Link to="/logout" onClick={handleMenuClick}>
                 Signout
               </Link>
             )}
-          </li>
-          <li>
-            {!currentUser ? (
-              <Link to="/signin" onClick={handleMenuClick}>
-                Signin
-              </Link>
-            ) : null}
           </li>
           <li>
             {currentUser ? (

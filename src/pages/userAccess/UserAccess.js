@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import Registration from "../../components/userAccess/Registration";
+import AccessWrapper from "../../components/userAccess/AccessWrapper";
 
 const UserAccess = () => {
-  return <Registration />;
+  return <AccessWrapper />;
 };
 
 export default UserAccess;

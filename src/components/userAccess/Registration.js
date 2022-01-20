@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 // Components
 import Error from "../common/Error";
 import Validation from "../common/Validation";
@@ -19,7 +19,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import styles from "./styles.module.css";
 
-const UserAccess = () => {
+const UserAccess = ({ handleBack }) => {
   // Common
   const { signup, googleSignup, currentUser } = useAuth();
 
@@ -52,6 +52,7 @@ const UserAccess = () => {
     checkboxOption,
     buttonWrapper,
     button,
+    linkWrapper,
   } = styles;
 
   useEffect(() => {
@@ -214,13 +215,20 @@ const UserAccess = () => {
                   ) : null}
                 </form>
               ) : (
-                <div className={buttonWrapper}>
-                  <button className={button} onClick={handleEmailSignup}>
-                    Email
-                  </button>
-                  <button className={button} onClick={handleGoogleSingup}>
-                    Google
-                  </button>
+                <div>
+                  <div className={buttonWrapper}>
+                    <button className={button} onClick={handleEmailSignup}>
+                      Email
+                    </button>
+                    <button className={button} onClick={handleGoogleSingup}>
+                      Google
+                    </button>
+                  </div>
+                  <div className={linkWrapper}>
+                    <Link to="#" onClick={() => handleBack("back")}>
+                      Already a user?
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
