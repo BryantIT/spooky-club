@@ -110,7 +110,9 @@ const UserAccess = ({ handleBack }) => {
   const createFirebaseUser = async () => {
     try {
       await signup(loginData.email, loginData.password).then(
-        navigate("/profile")
+        setTimeout(() => {
+          navigate('/profile')
+        }, 1000)
       );
     } catch (error) {
       const stringed = JSON.stringify(error.message);
