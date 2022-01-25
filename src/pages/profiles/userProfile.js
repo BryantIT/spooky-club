@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import UserSetup from '../../components/profiles/UserSetup'
 
 const userProfile = () => {
   return (
-    <h1>User Profile</h1>
+    <Fragment>
+      <UserSetup />
+    </Fragment>
   )
 }
 
