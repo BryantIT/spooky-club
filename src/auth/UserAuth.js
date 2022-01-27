@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if(currentUser) {
       const setUserData = async () => {
-        const userDoc = await doc(db, 'test', currentUser.uid)
+        const userDoc = await doc(db, 'users', currentUser.uid)
         getDoc(userDoc)
         .then((doc) => {
           setUserInfo(doc.data())
