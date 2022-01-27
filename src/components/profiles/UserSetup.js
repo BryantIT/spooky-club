@@ -18,9 +18,23 @@ import {
 import { RiLockPasswordFill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { MdLocalPolice } from "react-icons/md";
+import { useAuth } from "../../auth/UserAuth";
+import { db, storage } from "../../firebase-config";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  setDoc,
+  getDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 
 const UserSetup = () => {
+  const { currentUser } = useAuth()
   const inputFile = useRef()
   const zipApiKey = process.env.REACT_APP_ZIP_API_KEY
   const [firstName, setFirstName] = useState('')
@@ -388,17 +402,95 @@ const UserSetup = () => {
     )
   }
 
+  const calculateProfilePercentage = () => {
+    let count = 0
+    if (profileImage) {
+      count = count + 17
+    }
+    if (firstName) {
+      count = count + 17
+    }
+    if (lastName) {
+      count = count + 17
+    }
+    if (city) {
+      count = count + 17
+    }
+    if (state) {
+      count = count + 17
+    }
+    if (userInfo) {
+      count = count + 17
+    }
+    if (count > 100) {
+      count = 100
+    }
+    return count
+  }
+
   const handleStepFiveSubmit = (event) => {
     event.preventDefault()
-    const testObj = {
+    const uid = currentUser.uid
+    const createdOn = DateTime.now().ts
+    const updatedOn = DateTime.now().ts
+    const vip = false
+    const chatUserName = `${firstName.charAt(0)}.${lastName}`
+    const email = currentUser.email
+    const flagged = false
+    const profileCompletePercentage = calculateProfilePercentage()
+    const karma = 10
+    const docRef = collection(db, "users");
+    const data = {
+      uid: uid,
+      createdOn: createdOn,
+      updatedOn: updatedOn,
+      profileImage: imageFileName,
       firstName: firstName,
       lastName: lastName,
       city: city,
       state: state,
+      zip: zip,
       info: userInfo,
-      profileImage: imageFileName
+      vip: vip,
+      chatUserName: chatUserName,
+      email: email,
+      flagged: flagged,
+      profileCompletePercentage: profileCompletePercentage,
+      karma: karma
     }
-    console.log(testObj)
+
+    const uploadeImage = async () => {
+      const file = imageAsFile
+      const fileName = imageFileName
+      const storageRef = ref(storage, `profileImages/${fileName}`)
+      const uploadTask = uploadBytesResumable(storageRef, file)
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred /  snapshot.totalBytes) * 100
+          )
+          console.log(progress)
+        },
+        (error) => console.log(error),
+        () => {
+          console.log('Finished')
+        }
+      )
+      // await uploadBytes(storage, profileImage)
+      // .then((snapshot) => {
+      //   console.log('Image Uploaded!')
+      // })
+    }
+    if (profileImage) {
+      uploadeImage()
+    }
+
+    const createUser = async () => {
+      await setDoc(doc(db, 'users', uid), data);
+    };
+
   }
 
   const StepFive = () => {
@@ -426,7 +518,7 @@ const UserSetup = () => {
                         type="text"
                         name="firstName"
                         placeholder={firstName}
-                        disabled
+                        readOnly
                       />
                     </div>
                     <div className={inputField}>
@@ -438,7 +530,7 @@ const UserSetup = () => {
                         type="text"
                         name="lastName"
                         placeholder={lastName}
-                        disabled
+                        readOnly
                       />
                     </div>
                     <div className={inputField}>
@@ -450,7 +542,7 @@ const UserSetup = () => {
                         type="text"
                         name="city"
                         placeholder={city}
-                        disabled
+                        readOnly
                       />
                     </div>
                     <div className={inputField}>
@@ -462,7 +554,7 @@ const UserSetup = () => {
                         type="text"
                         name="state"
                         placeholder={state}
-                        disabled
+                        readOnly
                       />
                   </div>
                   <div className={inputField}>
@@ -474,7 +566,7 @@ const UserSetup = () => {
                       type="text"
                       name="info"
                       placeholder={userInfo}
-                      disabled
+                      readOnly
                     />
                 </div>
                     <input
