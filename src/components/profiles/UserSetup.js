@@ -34,6 +34,7 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 
 const UserSetup = () => {
+  const userRef = collection(db, "users");
   const { currentUser } = useAuth()
   const inputFile = useRef()
   const zipApiKey = process.env.REACT_APP_ZIP_API_KEY
@@ -428,7 +429,7 @@ const UserSetup = () => {
     return count
   }
 
-  const handleStepFiveSubmit = (event) => {
+  const handleStepFiveSubmit = async (event) => {
     event.preventDefault()
     const uid = currentUser.uid
     const createdOn = DateTime.now().ts
@@ -439,9 +440,7 @@ const UserSetup = () => {
     const flagged = false
     const profileCompletePercentage = calculateProfilePercentage()
     const karma = 10
-    const docRef = collection(db, "users");
     const data = {
-      uid: uid,
       createdOn: createdOn,
       updatedOn: updatedOn,
       profileImage: imageFileName,
@@ -478,19 +477,14 @@ const UserSetup = () => {
           console.log('Finished')
         }
       )
-      // await uploadBytes(storage, profileImage)
-      // .then((snapshot) => {
-      //   console.log('Image Uploaded!')
-      // })
     }
     if (profileImage) {
       uploadeImage()
+      .then(
+        console.log('Begin Adding User'),
+        await setDoc(doc(db, 'users', uid), data)
+      )
     }
-
-    const createUser = async () => {
-      await setDoc(doc(db, 'users', uid), data);
-    };
-
   }
 
   const StepFive = () => {
