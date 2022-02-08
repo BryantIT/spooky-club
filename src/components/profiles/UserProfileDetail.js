@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from "./detail.module.css";
 import { BiArrowBack } from "react-icons/bi";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { useAuth } from "../../auth/UserAuth";
 
 const UserProfileDetail = () => {
+  const { userInfo, currentUser } = useAuth();
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    setUser(userInfo)
+  }, [userInfo])
+
   const {
     container,
     card,
@@ -11,7 +19,8 @@ const UserProfileDetail = () => {
     content,
     wrapper,
     section,
-    row
+    row,
+    line
   } = styles
   return (
     <div className={wrapper}>
@@ -21,9 +30,9 @@ const UserProfileDetail = () => {
         <div className={box}>
           <div className={content}>
             <h2>Profile Details</h2>
-            <h3>Card One</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-            <a href="#">Read More</a>
+          <hr className={line} />
+        <p>Information pertaining to profile details such as name, location and info.</p>
+        <button>View</button>
           </div>
         </div>
       </div>
@@ -31,10 +40,10 @@ const UserProfileDetail = () => {
       <div className={card}>
         <div className={box}>
           <div className={content}>
-            <h2>02</h2>
-            <h3>Card Two</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-            <a href="#">Read More</a>
+            <h2>Account</h2>
+            <hr className={line} />
+          <p>Email, password and billing info.</p>
+            <button>View</button>
           </div>
         </div>
       </div>
@@ -42,50 +51,62 @@ const UserProfileDetail = () => {
       <div className={card}>
         <div className={box}>
           <div className={content}>
-            <h2>03</h2>
-            <h3>Card Three</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-            <a href="#">Read More</a>
+            <h2>Achievements</h2>
+            <hr className={line} />
+          <p>Look here to see your achievements and requirements for your next achievement.</p>
+            <button>View</button>
+          </div>
+        </div>
+      </div>
+
+      <div className={card}>
+        <div className={box}>
+          <div className={content}>
+            <h2>Investigations</h2>
+            <hr className={line} />
+          <p>View and log your investigations here.</p>
+            <button>View</button>
+          </div>
+        </div>
+      </div>
+
+      <div className={card}>
+        <div className={box}>
+          <div className={content}>
+            <h2>Inventory</h2>
+            <hr className={line} />
+          <p>View and add to your inventory.</p>
+            <button>View</button>
           </div>
         </div>
       </div>
       <div className={card}>
         <div className={box}>
           <div className={content}>
-            <h2>03</h2>
-            <h3>Card Three</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-            <a href="#">Read More</a>
+            <h2>Public Profile</h2>
+            <hr className={line} />
+          <p>View and edit what appears in your public profile.</p>
+            <button>View</button>
           </div>
         </div>
       </div>
       <div className={card}>
         <div className={box}>
           <div className={content}>
-            <h2>03</h2>
-            <h3>Card Three</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-            <a href="#">Read More</a>
+            <h2>Stats</h2>
+            <hr className={line} />
+          <p>View stats about things you have done here.</p>
+            <button>View</button>
           </div>
         </div>
       </div>
       <div className={card}>
         <div className={box}>
           <div className={content}>
-            <h2>03</h2>
-            <h3>Card Three</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div className={card}>
-        <div className={box}>
-          <div className={content}>
-            <h2>03</h2>
-            <h3>Card Three</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
-            <a href="#">Read More</a>
+            <h2>Tools</h2>
+            <hr className={line} />
+          <p>Customize your quick access tools and links.</p>
+            <button>View</button>
           </div>
         </div>
       </div>
