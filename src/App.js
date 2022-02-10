@@ -13,6 +13,7 @@ import Logo from "./components/logo/Logo";
 import Footer from "./components/footer/Footer";
 import Logout from "./components/common/Logout";
 import PrivateRoute from "./components/common/PrivateRoute";
+import UnderConstruction from './components/common/UnderConstruction'
 // Styles
 import "./App.css";
 // Packages
@@ -106,6 +107,7 @@ function App() {
                   </PrivateRoute>
                 }
               />
+              <Route exact path="/under-construction" element={<UnderConstruction />} />
             </Routes>
             <Footer />
           </Fragment>
