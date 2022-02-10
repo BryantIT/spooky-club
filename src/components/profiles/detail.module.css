@@ -86,7 +86,7 @@
 }
 
 .container .card .box:hover {
-  transform: translateY(-50px);
+  transform: translateY(-10px);
 }
 
 .container .card .box:before {
