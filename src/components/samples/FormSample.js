@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './formSample.module.css'
 
 const FormSample = () => {
-  const { container, formRow, inputGroup, colHalf, colThird } = styles
   return (
 
 <div className={container}>
@@ -10,10 +9,10 @@ const FormSample = () => {
     <div className={formRow}>
       <h4>Account</h4>
     <div className={inputGroup}>
-      <input type="text" placeholder="Full Name"/>
+      <input type="text" value={firstName} placeholder="First Name"/>
     </div>
       <div className={inputGroup}>
-        <input type="email" placeholder="Email Adress"/>
+        <input type="email" placeholder="hello Adress"/>
       </div>
       <div className={inputGroup}>
         <input type="password" placeholder="Password"/>
