@@ -7,6 +7,7 @@ import About from "./pages/about/About";
 import UserAccess from "./pages/userAccess/UserAccess";
 import Signin from "./pages/userAccess/SigninPage";
 import UserProfile from "./pages/profiles/userProfile";
+import ProfileDetails from './pages/profiles/ProfileDetails'
 // Components
 import Navbar from "./components/navbar/Navbar";
 import Logo from "./components/logo/Logo";
@@ -104,6 +105,15 @@ function App() {
                 element={
                   <PrivateRoute>
                     <UserProfile />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                exact
+                path="/profile-details"
+                element={
+                  <PrivateRoute>
+                    <ProfileDetails />
                   </PrivateRoute>
                 }
               />

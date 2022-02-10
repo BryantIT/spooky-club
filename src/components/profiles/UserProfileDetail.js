@@ -19,6 +19,9 @@ const UserProfileDetail = () => {
       case "under-construction":
         navigate("/under-construction");
         break;
+        case "profile-details":
+          navigate("/profile-details");
+          break;
       default:
         return;
     }
@@ -38,7 +41,7 @@ const UserProfileDetail = () => {
                   Information pertaining to profile details such as name,
                   location and info.
                 </p>
-                <button onClick={() => handleClick("under-construction")}>
+                <button onClick={() => handleClick("profile-details")}>
                   View
                 </button>
               </div>
