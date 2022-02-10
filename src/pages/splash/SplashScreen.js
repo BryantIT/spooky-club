@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
-import styles from "./styles.module.css"
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
 
 const SplashScreen = ({ endSplash }) => {
-  const [showButton, setShowButton] = useState(false)
-  const [showLogo, setShowLogo] = useState(false)
+  const [showButton, setShowButton] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
   const {
     container,
     content,
@@ -14,21 +14,21 @@ const SplashScreen = ({ endSplash }) => {
     frame4,
     frame5,
     btn,
-    logo
-  } = styles
+    logo,
+  } = styles;
 
   useEffect(() => {
     setTimeout(() => {
-      setShowButton(true)
-      setShowLogo(true)
-    }, 15000)
-  }, [])
+      setShowButton(true);
+      setShowLogo(true);
+    }, 15000);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
-      setShowLogo(true)
-    }, 10000)
-  }, [])
+      setShowLogo(true);
+    }, 10000);
+  }, []);
   return (
     <div className={container}>
       <div className={content}>
@@ -37,22 +37,22 @@ const SplashScreen = ({ endSplash }) => {
         <h2 className={frame3}>We are here to help</h2>
         <h2 className={frame4}>If you are ready</h2>
         <h2 className={frame5}>
-          {
-            showLogo ?
+          {showLogo ? (
             <div className={logo}>
-              <Link to='/'></Link>
-          </div> : null
-          }
-        <span>Myst and Orb Society</span>
-        <br />
-        {
-          showButton ?
-          <button className={btn} onClick={endSplash}>Enter Here</button> : null
-        }
+              <Link to="/"></Link>
+            </div>
+          ) : null}
+          <span>Myst and Orb Society</span>
+          <br />
+          {showButton ? (
+            <button className={btn} onClick={endSplash}>
+              Enter Here
+            </button>
+          ) : null}
         </h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SplashScreen
+export default SplashScreen;

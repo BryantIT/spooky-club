@@ -111,7 +111,7 @@ const UserAccess = ({ handleBack }) => {
     try {
       await signup(loginData.email, loginData.password).then(
         setTimeout(() => {
-          navigate('/profile')
+          navigate("/profile");
         }, 1000)
       );
     } catch (error) {

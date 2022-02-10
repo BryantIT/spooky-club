@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import styles from "./styles.module.css"
+import React, { useEffect, useState } from "react";
+import styles from "./styles.module.css";
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -7,16 +7,16 @@ import {
   FaFacebookSquare,
   FaTwitterSquare,
   FaInstagramSquare,
-} from "react-icons/fa"
-import Logo from "../logo/Logo"
+} from "react-icons/fa";
+import Logo from "../logo/Logo";
 
 const Footer = () => {
-  const [year, setYear] = useState("")
+  const [year, setYear] = useState("");
 
   useEffect(() => {
-    const currentYear = new Date().getFullYear()
-    setYear(currentYear)
-  }, [])
+    const currentYear = new Date().getFullYear();
+    setYear(currentYear);
+  }, []);
   const {
     footer,
     left,
@@ -26,7 +26,7 @@ const Footer = () => {
     iconWrapper,
     footerCompanyAbout,
     footerIcons,
-  } = styles
+  } = styles;
 
   return (
     <footer className={footer}>
@@ -55,25 +55,39 @@ const Footer = () => {
             <FaEnvelope size={20} />
           </span>
           <p>
-            <a href="mailto:investigator@mystandorbsociety.com">investigator@mystandorbsociety.com</a>
+            <a href="mailto:investigator@mystandorbsociety.com">
+              investigator@mystandorbsociety.com
+            </a>
           </p>
         </div>
       </div>
       <div className={right}>
         <div className={footerIcons}>
-          <a href="https://www.facebook.com/Myst-and-Orb-Society-100944138757824" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.facebook.com/Myst-and-Orb-Society-100944138757824"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebookSquare />
           </a>
-          <a href="https://twitter.com/Mystandorb" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://twitter.com/Mystandorb"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitterSquare />
           </a>
-          <a href="https://www.instagram.com/mystandorbsociety/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.instagram.com/mystandorbsociety/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaInstagramSquare />
           </a>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
