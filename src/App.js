@@ -6,14 +6,14 @@ import SplashScreen from "./pages/splash/SplashScreen";
 import About from "./pages/about/About";
 import UserAccess from "./pages/userAccess/UserAccess";
 import Signin from "./pages/userAccess/SigninPage";
-import UserProfile from './pages/profiles/userProfile'
+import UserProfile from "./pages/profiles/userProfile";
 // Components
 import Navbar from "./components/navbar/Navbar";
 import Logo from "./components/logo/Logo";
 import Footer from "./components/footer/Footer";
 import Logout from "./components/common/Logout";
 import PrivateRoute from "./components/common/PrivateRoute";
-import UnderConstruction from './components/common/UnderConstruction'
+import UnderConstruction from "./components/common/UnderConstruction";
 // Styles
 import "./App.css";
 // Packages
@@ -86,7 +86,7 @@ function App() {
             <Navbar />
             <Routes>
               <Route exact path="/" element={<Landing />} />
-            <Route exact path="/about" element={<About />} />
+              <Route exact path="/about" element={<About />} />
               <Route exact path="/signup" element={<UserAccess />} />
               <Route exact path="/signin" element={<UserAccess />} />
               <Route
@@ -107,7 +107,11 @@ function App() {
                   </PrivateRoute>
                 }
               />
-              <Route exact path="/under-construction" element={<UnderConstruction />} />
+              <Route
+                exact
+                path="/under-construction"
+                element={<UnderConstruction />}
+              />
             </Routes>
             <Footer />
           </Fragment>

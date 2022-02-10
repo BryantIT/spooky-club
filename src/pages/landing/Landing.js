@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import styles from "./styles.module.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import styles from "./styles.module.css";
 
 const Landing = () => {
-  const { intro, introContent, row, colTwelve, btn, shadowOverlay } = styles
+  const { intro, introContent, row, colTwelve, btn, shadowOverlay } = styles;
   return (
     <section className={intro}>
       <div className={shadowOverlay} />
@@ -19,7 +19,7 @@ const Landing = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;

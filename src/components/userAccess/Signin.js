@@ -58,7 +58,7 @@ const Signin = ({ handleBack }) => {
   };
 
   const handleGoogleSingin = () => {
-    googleSignup()
+    googleSignup();
   };
 
   const handleChange = (event) => {
@@ -73,9 +73,8 @@ const Signin = ({ handleBack }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     let isReady = false;
-    signin(signinData.email, signinData.password)
-    .then((err) => {
-      navigate("/profile")
+    signin(signinData.email, signinData.password).then((err) => {
+      navigate("/profile");
     });
   };
 

@@ -2,9 +2,11 @@
   0% {
     transform: rotate(8deg);
   }
+
   50% {
     transform: rotate(-8deg);
   }
+
   100% {
     transform: rotate(8deg);
   }
@@ -37,6 +39,7 @@ p {
   border-radius: 100px 100px 0 0;
   animation: float 2s infinite;
 }
+
 .ghostEyes {
   display: flex;
   justify-content: space-around;
@@ -45,6 +48,7 @@ p {
   width: 90px;
   height: 20px;
 }
+
 .ghostEyes:before, .ghostEyes:after {
   content: "";
   display: block;
@@ -53,6 +57,7 @@ p {
   background: #00034b;
   border-radius: 50%;
 }
+
 .ghostDimples {
   display: flex;
   justify-content: space-around;
@@ -61,6 +66,7 @@ p {
   width: 130px;
   height: 20px;
 }
+
 .ghostDimples:before, .ghostDimples:after {
   content: "";
   display: block;
@@ -69,6 +75,7 @@ p {
   background: #ffbeff;
   border-radius: 50%;
 }
+
 .ghostFeet {
   width: 100%;
   position: absolute;
@@ -76,12 +83,14 @@ p {
   display: flex;
   justify-content: space-between;
 }
+
 .ghostFoot {
   width: 25%;
   height: 26px;
   border-radius: 50%;
   background: #ffffff;
 }
+
 .ghostFoot:last-child {
   background-image: linear-gradient(to right, #ffffff 55%, #dbdbdb 45%);
 }
@@ -99,14 +108,17 @@ p {
   0%, 100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-15px);
   }
 }
+
 @keyframes shadow {
   0%, 100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(0.9);
   }
@@ -122,48 +134,57 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-   user-select: none;
+  user-select: none;
 }
 
-.logo b{
+.logo b {
   font: 400 10vh "Vibur";
   color: #fee;
   text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
 }
-.logo b span{
+
+.logo b span {
   animation: blink linear infinite 2s;
 }
-.logo b span:nth-of-type(2){
+
+.logo b span:nth-of-type(2) {
   animation: blink linear infinite 3s;
 }
+
 @keyframes blink {
   78% {
     color: inherit;
     text-shadow: inherit;
   }
-  79%{
-     color: #333;
-  }
-  80% {
 
+  79% {
+    color: #333;
+  }
+
+  80% {
     text-shadow: none;
   }
+
   81% {
     color: inherit;
     text-shadow: inherit;
   }
+
   82% {
     color: #333;
     text-shadow: none;
   }
+
   83% {
     color: inherit;
     text-shadow: inherit;
   }
+
   92% {
     color: #333;
     text-shadow: none;
   }
+
   92.5% {
     color: inherit;
     text-shadow: inherit;

@@ -1,14 +1,14 @@
-import React from "react"
-import styles from './styles.module.css'
-import { Link } from 'react-router-dom'
+import React from "react";
+import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
-  const { logo } = styles
+  const { logo } = styles;
   return (
     <div className={logo}>
-      <Link to='/'></Link>
+      <Link to="/"></Link>
     </div>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

@@ -1,8 +1,8 @@
-import React from "react"
-import styles from "./styles.module.css"
-import bryantImage from "../../images/leadinvestigator.jpg"
-import cheyenneImage from "../../images/investigatorCheyenne.jpg"
-import luImage from "../../images/techguy.jpg"
+import React from "react";
+import styles from "./styles.module.css";
+import bryantImage from "../../images/leadinvestigator.jpg";
+import cheyenneImage from "../../images/investigatorCheyenne.jpg";
+import luImage from "../../images/techguy.jpg";
 
 const Crew = () => {
   const {
@@ -34,7 +34,7 @@ const Crew = () => {
       title: "Investigator/Tech",
       quote: "That's a nope.",
     },
-  ]
+  ];
   return (
     <ul className={cards}>
       {crewMembers
@@ -58,7 +58,7 @@ const Crew = () => {
           ))
         : null}
     </ul>
-  )
-}
+  );
+};
 
-export default Crew
+export default Crew;

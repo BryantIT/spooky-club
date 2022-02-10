@@ -47,42 +47,51 @@
   animation: expand 0.8s 0.6s ease-out forwards;
   opacity: 0;
 }
+
 .formWrapper h2 {
   font-size: 1.5em;
   line-height: 1.5em;
   margin: 0;
 }
+
 .formWrapper .titleContainer {
   text-align: center;
   padding-bottom: 15px;
 }
+
 .formWrapper h3 {
   font-size: 1.1em;
   font-weight: normal;
   line-height: 1.5em;
   margin: 0;
 }
+
 .formWrapper label {
   font-size: 12px;
 }
+
 .formWrapper .rows {
   margin: 10px -15px;
 }
-.formWrapper .rows > div {
+
+.formWrapper .rows>div {
   padding: 0 15px;
   box-sizing: border-box;
 }
+
 .formWrapper .colHalf {
   width: 50%;
   float: left;
 }
+
 .formWrapper .inputField {
   position: relative;
   margin-bottom: 20px;
   -webkit-animation: bounce 0.6s ease-out;
   animation: bounce 0.6s ease-out;
 }
-.formWrapper .inputField > span {
+
+.formWrapper .inputField>span {
   position: absolute;
   left: 0;
   top: 0;
@@ -92,12 +101,15 @@
   text-align: center;
   width: 30px;
 }
-.formWrapper .inputField > span > i {
+
+.formWrapper .inputField>span>i {
   padding-top: 10px;
 }
-.formWrapper .textarea_field > span > i {
+
+.formWrapper .textarea_field>span>i {
   padding-top: 10px;
 }
+
 .formWrapper input[type=text], .formWrapper input[type=email], .formWrapper input[type=password] {
   width: 100%;
   padding: 8px 10px 9px 35px;
@@ -110,9 +122,11 @@
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .formWrapper input[type=text]:hover, .formWrapper input[type=email]:hover, .formWrapper input[type=password]:hover {
   background: #fafafa;
 }
+
 .formWrapper input[type=text]:focus, .formWrapper input[type=email]:focus, .formWrapper input[type=password]:focus {
   -webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
   -moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
@@ -120,6 +134,7 @@
   border: 1px solid #f5ba1a;
   background: #fafafa;
 }
+
 .formWrapper input[type=submit] {
   background: #05bca9;
   height: 35px;
@@ -136,12 +151,15 @@
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .formWrapper input[type=submit]:hover {
   background: #6cf500;
 }
+
 .formWrapper input[type=submit]:focus {
   background: #6cf500;
 }
+
 .formWrapper input[type=checkbox], .formWrapper input[type=radio] {
   border: 0;
   clip: rect(0 0 0 0);
@@ -161,6 +179,7 @@
   margin-right: 1em;
   position: relative;
 }
+
 .checkboxOption label:before {
   content: "";
   display: inline-block;
@@ -174,6 +193,7 @@
   background-clip: content-box;
   transition: all 0.2s ease;
 }
+
 .checkboxOption label:after {
   border-right: 2px solid #000000;
   border-top: 2px solid #000000;
@@ -187,13 +207,16 @@
   width: 7px;
   display: none;
 }
-.checkboxOption input:hover + label:before {
+
+.checkboxOption input:hover+label:before {
   border-color: #000000;
 }
-.checkboxOption input:checked + label:before {
+
+.checkboxOption input:checked+label:before {
   border-color: #000000;
 }
-.checkboxOption input:checked + label:after {
+
+.checkboxOption input:checked+label:after {
   -moz-animation: check 0.8s ease 0s running;
   -webkit-animation: check 0.8s ease 0s running;
   animation: check 0.8s ease 0s running;
@@ -207,6 +230,7 @@
 .radioOption label {
   margin-right: 1em;
 }
+
 .radioOption label:before {
   content: "";
   display: inline-block;
@@ -221,10 +245,12 @@
   background-clip: content-box;
   transition: all 0.2s ease;
 }
-.radioOption input:hover + label:before {
+
+.radioOption input:hover+label:before {
   border-color: #000000;
 }
-.radioOption input:checked + label:before {
+
+.radioOption input:checked+label:before {
   background-color: #000000;
   border-color: #000000;
 }
@@ -233,6 +259,7 @@
   position: relative;
   width: 100%;
 }
+
 .selectOption select {
   display: inline-block;
   width: 100%;
@@ -248,9 +275,11 @@
   -moz-appearance: none;
   transition: all 0.2s ease;
 }
+
 .selectOption select::-ms-expand {
   display: none;
 }
+
 .selectOption select:hover, .selectOption select:focus {
   color: #000000;
   background: #fafafa;
@@ -258,7 +287,7 @@
   outline: none;
 }
 
-.selectOption select:hover + .select_arrow, .selectOption select:focus + .select_arrow {
+.selectOption select:hover+.select_arrow, .selectOption select:focus+.select_arrow {
   border-top-color: #000000;
 }
 
@@ -267,115 +296,141 @@
     height: 0;
     width: 0;
   }
+
   25% {
     height: 0;
     width: 7px;
   }
+
   50% {
     height: 20px;
     width: 7px;
   }
 }
+
 @keyframes check {
   0% {
     height: 0;
     width: 0;
   }
+
   25% {
     height: 0;
     width: 7px;
   }
+
   50% {
     height: 20px;
     width: 7px;
   }
 }
+
 @-webkit-keyframes expand {
   0% {
     -webkit-transform: scale3d(1, 0, 1);
     opacity: 0;
   }
+
   25% {
     -webkit-transform: scale3d(1, 1.2, 1);
   }
+
   50% {
     -webkit-transform: scale3d(1, 0.85, 1);
   }
+
   75% {
     -webkit-transform: scale3d(1, 1.05, 1);
   }
+
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     opacity: 1;
   }
 }
+
 @keyframes expand {
   0% {
     -webkit-transform: scale3d(1, 0, 1);
     transform: scale3d(1, 0, 1);
     opacity: 0;
   }
+
   25% {
     -webkit-transform: scale3d(1, 1.2, 1);
     transform: scale3d(1, 1.2, 1);
   }
+
   50% {
     -webkit-transform: scale3d(1, 0.85, 1);
     transform: scale3d(1, 0.85, 1);
   }
+
   75% {
     -webkit-transform: scale3d(1, 1.05, 1);
     transform: scale3d(1, 1.05, 1);
   }
+
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     opacity: 1;
   }
 }
+
 @-webkit-keyframes bounce {
   0% {
     -webkit-transform: translate3d(0, -25px, 0);
     opacity: 0;
   }
+
   25% {
     -webkit-transform: translate3d(0, 10px, 0);
   }
+
   50% {
     -webkit-transform: translate3d(0, -6px, 0);
   }
+
   75% {
     -webkit-transform: translate3d(0, 2px, 0);
   }
+
   100% {
     -webkit-transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }
+
 @keyframes bounce {
   0% {
     -webkit-transform: translate3d(0, -25px, 0);
     transform: translate3d(0, -25px, 0);
     opacity: 0;
   }
+
   25% {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
+
   50% {
     -webkit-transform: translate3d(0, -6px, 0);
     transform: translate3d(0, -6px, 0);
   }
+
   75% {
     -webkit-transform: translate3d(0, 2px, 0);
     transform: translate3d(0, 2px, 0);
   }
+
   100% {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
 }
+
 @media (max-width: 600px) {
   .formWrapper .colHalf {
     width: 100%;
@@ -408,10 +463,10 @@
 
 .button {
   -webkit-box-flex: 1 1 0;
-  -moz-box-flex:  1 1 0;
-  -webkit-flex:  1 1 0;
-  -ms-flex:  1 1 0;
-  flex:  1 1 0;
+  -moz-box-flex: 1 1 0;
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
 }
 
 .linkWrapper {
