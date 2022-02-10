@@ -1,0 +1,151 @@
+.wrapper {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px 0;
+}
+
+.container .card {
+  position: relative;
+  min-width: 320px;
+  height: 440px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  transition: 0.5s;
+}
+
+.container .card:nth-child(1) .box .content button {
+  background: #2196f3;
+}
+
+.container .card:nth-child(2) .box .content button {
+  background: #e91e63;
+}
+
+.container .card:nth-child(3) .box .content button {
+  background: #23c186;
+}
+.container .card:nth-child(4) .box .content button {
+  background: #3D642D;
+}
+.container .card:nth-child(5) .box .content button {
+  background: #8F8F8F;
+}
+.container .card:nth-child(6) .box .content button {
+  background: #5E2129;
+}
+.container .card:nth-child(7) .box .content button {
+  background: #F44611;
+}
+.container .card:nth-child(8) .box .content button {
+  background: #256D7B;
+}
+
+.container .card .box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: #2a2b2f;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.container .card .box:hover {
+  transform: translateY(-50px);
+}
+
+.container .card .box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.container .card .box .content {
+  padding: 20px;
+  text-align: center;
+}
+
+.container .card .box .content h2 {
+  text-transform: Uppercase;
+  margin-bottom: .5em;
+  position: relative;
+  color: rgba(255, 255, 255, 0.82);
+	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+	font: 'BazarMedium';
+	letter-spacing: 5px;
+}
+
+.container .card .box .content h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  z-index: 1;
+  transition: 0.5s;
+  margin-bottom: 15px;
+}
+
+.container .card .box .content p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.container .card .box .content button {
+  position: absolute;
+  background: black;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-right: 10%;
+  margin-left: 10%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+.container .card .box .content button:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background: #fff;
+  color: #000;
+}
+
+.line {
+  border: 0;
+  height: 1px;
+  width: 75%;
+  position: relative;
+  margin: 30px auto;
+  background: #0050c7;
+}

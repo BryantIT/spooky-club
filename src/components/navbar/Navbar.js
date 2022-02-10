@@ -23,6 +23,7 @@ const Navbar = () => {
         id={active}
         checked={checkActive}
         onClick={handleMenuClick}
+        readOnly
       />
       <label for={active} className={menuBtn}>
         <span></span>

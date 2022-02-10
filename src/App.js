@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 // Pages
 import Landing from "./pages/landing/Landing";
-import Main from "./pages/Main/Main";
+import Main from "./pages/main/Main";
 import SplashScreen from "./pages/splash/SplashScreen";
 import About from "./pages/about/About";
 import UserAccess from "./pages/userAccess/UserAccess";
-import Profile from "./pages/userAccess/Profile";
 import Signin from "./pages/userAccess/SigninPage";
+import UserProfile from './pages/profiles/userProfile'
 // Components
 import Navbar from "./components/navbar/Navbar";
 import Logo from "./components/logo/Logo";
@@ -85,7 +85,7 @@ function App() {
             <Navbar />
             <Routes>
               <Route exact path="/" element={<Landing />} />
-              <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About />} />
               <Route exact path="/signup" element={<UserAccess />} />
               <Route exact path="/signin" element={<UserAccess />} />
               <Route
@@ -102,7 +102,7 @@ function App() {
                 path="/profile"
                 element={
                   <PrivateRoute>
-                    <Profile />
+                    <UserProfile />
                   </PrivateRoute>
                 }
               />
