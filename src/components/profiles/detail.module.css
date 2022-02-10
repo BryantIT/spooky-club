@@ -60,6 +60,9 @@
 .container .card:nth-child(8) .box .content button {
   background: #256D7B;
 }
+.container .card:nth-child(9) .box .content button {
+  background: #75a6f0;
+}
 
 .container .card .box {
   position: absolute;
