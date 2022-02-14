@@ -1,13 +1,21 @@
-/* 64ac15 */
+.container {
+  position: relative;
+  max-width: 38em;
+  padding: 1em 3em 2em 3em;
+  margin: 8em auto;
+  border-radius: 4.2px;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+
 h4 {
   color: #f0a500;
 }
 
-input,
-input[type="radio"]+label,
-input[type="checkbox"]+label:before,
-select option,
-select {
+.inputGroup input,
+.inputGroup input[type="radio"]+label,
+.inputGroup input[type="checkbox"]+label:before,
+.inputGroup select option,
+.inputGroup select {
   width: 100%;
   padding: 1em;
   line-height: 1.4;
@@ -21,25 +29,25 @@ select {
   transition: all 0.35s ease-in-out;
 }
 
-input:focus {
+.inputGroup input:focus {
   outline: 0;
   border-color: #bd8200;
 }
 
-input:focus+.inputIcon i {
+.inputGroup input:focus+.inputIcon i {
   color: #f0a500;
 }
 
-input:focus+.inputIcon:after {
+.inputGroup input:focus+.inputIcon:after {
   border-right-color: #f0a500;
 }
 
-input[type="radio"] {
+.inputGroup input[type="radio"] {
   display: none;
 }
 
-input[type="radio"]+label,
-select {
+.inputGroup input[type="radio"]+label,
+.inputGroup select {
   display: inline-block;
   width: 50%;
   text-align: center;
@@ -47,40 +55,40 @@ select {
   border-radius: 0;
 }
 
-input[type="radio"]+label:first-of-type {
+.inputGroup input[type="radio"]+label:first-of-type {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
-input[type="radio"]+label:last-of-type {
+.inputGroup input[type="radio"]+label:last-of-type {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-input[type="radio"]+label i {
+.inputGroup input[type="radio"]+label i {
   padding-right: 0.4em;
 }
 
-input[type="radio"]:checked+label,
-input:checked+label:before,
-select:focus,
-select:active {
+.inputGroup input[type="radio"]:checked+label,
+.inputGroup input:checked+label:before,
+.inputGroup select:focus,
+.inputGroup select:active {
   background-color: #f0a500;
   color: #fff;
   border-color: #bd8200;
 }
 
-input[type="checkbox"] {
+.inputGroup input[type="checkbox"] {
   display: none;
 }
 
-input[type="checkbox"]+label {
+.inputGroup input[type="checkbox"]+label {
   position: relative;
   display: block;
   padding-left: 1.6em;
 }
 
-input[type="checkbox"]+label:before {
+.inputGroup input[type="checkbox"]+label:before {
   position: absolute;
   top: 0.2em;
   left: 0;
@@ -91,7 +99,7 @@ input[type="checkbox"]+label:before {
   content: "";
 }
 
-input[type="checkbox"]+label:after {
+.inputGroup input[type="checkbox"]+label:after {
   position: absolute;
   top: 0.45em;
   left: 0.2em;
@@ -102,33 +110,38 @@ input[type="checkbox"]+label:after {
   content: "\f00c";
 }
 
-input:checked+label:after {
+.inputGroup input:checked+label:after {
   opacity: 1;
 }
 
-select {
+.inputGroup select {
   height: 3.4em;
   line-height: 2;
 }
 
-select:first-of-type {
+.inputGroup select:first-of-type {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
-select:last-of-type {
+.inputGroup select:last-of-type {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-select:focus,
-select:active {
+.inputGroup select:focus,
+.inputGroup select:active {
   outline: 0;
 }
 
-select option {
+.inputGroup select option {
   background-color: #f0a500;
   color: #fff;
+}
+
+.inputGroup textarea {
+  width: 100%;
+  max-width: 100%;
 }
 
 .inputGroup {
@@ -143,29 +156,6 @@ select option {
 }
 
 .inputGroup:after {
-  clear: both;
-}
-
-.container {
-  max-width: 38em;
-  padding: 1em 3em 2em 3em;
-  margin: 0em auto;
-  background-color: #fff;
-  border-radius: 4.2px;
-  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
-}
-
-.formRow {
-  zoom: 1;
-}
-
-.formRow:before,
-.formRow:after {
-  content: "";
-  display: table;
-}
-
-.formRow:after {
   clear: both;
 }
 
@@ -199,4 +189,40 @@ select option {
 .locationWrapper {
   display: flex;
   gap: 3px;
+}
+
+.locationWrapper input {
+  width: 100%;
+}
+
+.mainRow {
+  width: 94%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.mainRow:before, .mainRow:after {
+  content: "";
+  display: table;
+}
+
+.mainRow:after {
+  clear: both;
+}
+
+.mainRow .mainRow {
+  width: auto;
+  max-width: none;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.profileImage {
+  margin: 0 auto;
+  background-size: contain;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #cddc39;
+  filter: drop-shadow(0 0 8px #ff5722);
 }
