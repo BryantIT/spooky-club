@@ -15,7 +15,9 @@ const ProfileDetails = () => {
     locationWrapper,
     mainRow,
     profileImage,
-    h4Color
+    h4Color,
+    submitWrapper
+
   } = styles;
   const inputFile = useRef();
   const [firstName, setFirstName] = useState("");
@@ -100,6 +102,11 @@ const ProfileDetails = () => {
             <h4 className={h4Color}>Bio</h4>
             <div className={inputGroup}>
               <textarea value={bio}></textarea>
+            </div>
+          </div>
+          <div className={inputGroup}>
+            <div className={submitWrapper}>
+              <input type='submit' />
             </div>
           </div>
         </form>
