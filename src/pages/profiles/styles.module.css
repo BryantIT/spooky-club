@@ -244,7 +244,6 @@
   position: relative;
   text-decoration: none;
   width: 7em;
-  z-index: 2;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);

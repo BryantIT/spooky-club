@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./styles.module.css";
 import { useAuth } from "../../auth/UserAuth";
 import { db, storage } from "../../firebase-config";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { ref, getDownloadURL, uploadBytesResumable, deleteObject } from "firebase/storage";
+import { DateTime } from "luxon";
 
 const ProfileDetails = () => {
   const { currentUser, userInfo } = useAuth();
@@ -27,15 +28,20 @@ const ProfileDetails = () => {
   const [zip, setZip] = useState("");
   const [info, setInfo] = useState("");
   const [imageSrc, setImageSrc] = useState();
+  const [imageOld, setImageOld] = useState()
   const [bio, setBio] = useState("");
   const [imageURL, setImageURL] = useState()
 
-  useEffect(() => {
+  const getImageUrl = () => {
     const storageRef = ref(storage, `profileImages/${imageSrc}`);
     getDownloadURL(storageRef)
     .then((url) => {
       setImageURL(url)
     })
+  }
+
+  useEffect(() => {
+    getImageUrl()
   }, [imageSrc])
 
   useEffect(() => {
@@ -47,14 +53,60 @@ const ProfileDetails = () => {
       setZip(userInfo.zip)
       setInfo(userInfo.info)
       setImageSrc(userInfo.profileImage)
+      setImageOld(userInfo.profileImage)
       setBio(userInfo.bio)
     }
-  }, [])
+  }, [userInfo])
+
+  const uploadeImage = async (file, imageName) => {
+    const storageRef = ref(storage, `profileImages/${imageName}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        console.log(progress);
+      },
+      (error) => console.log(error),
+      () => {
+        console.log("Finished");
+      }
+    );
+  };
+
+  const deleteOldFile = () => {
+    const deleteRef = ref(storage, `profileImages/${imageOld}`)
+    deleteObject(deleteRef)
+    .then(() => {
+      console.log('image deleted')
+    })
+    .catch ((error) => {
+      console.log('image not deleted', error)
+    })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if (inputFile) {
+      const image = URL.createObjectURL(event.target.profileImage.files[0]);
+      const file = event.target.profileImage.files[0];
+      const date = DateTime.now();
+      const imageName = date + file.name;
+      setImageSrc(imageName)
+      uploadeImage(file, imageName)
+      .then(
+        deleteOldFile()
+      )
+    }
+  }
 
   return (
     <div className={mainRow}>
       <div className={container}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={formRow}>
             <div
               className={profileImage}
