@@ -88,6 +88,25 @@ const ProfileDetails = () => {
     })
   }
 
+  const handleImageChange = (event) => {
+    const image = URL.createObjectURL(event.target.files[0])
+  }
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    switch (name) {
+      case 'firstName':
+      setFirstName(value)
+      break
+      case 'lastName':
+      setLastName(value)
+      break
+      default:
+      break
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
     if (inputFile) {
@@ -116,8 +135,20 @@ const ProfileDetails = () => {
           <div className={formRow}>
             <h4 className={h4Color}>Profile Details</h4>
             <div className={inputGroup}>
-              <input type="text" value={firstName} placeholder="First Name" />
-              <input type="text" value={lastName} placeholder="Last Name" />
+              <input
+                type="text"
+                name='firstName'
+                value={firstName}
+                placeholder="First Name"
+                onChange={handleChange}
+               />
+              <input
+                type="text"
+                name='lastName'
+                value={lastName}
+                placeholder="Last Name"
+                onChange={handleChange}
+               />
             </div>
           </div>
           <div className={formRow}>
@@ -136,6 +167,7 @@ const ProfileDetails = () => {
                 type="file"
                 accept="image/*"
                 multiple={false}
+                onChange={handleImageChange}
               />
             </div>
           </div>
