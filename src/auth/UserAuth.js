@@ -60,6 +60,17 @@ export const AuthProvider = ({ children }) => {
     return unsubscribe
   }, [])
 
+  const refreshUser = () => {
+    const setUserData = async () => {
+      const userDoc = await doc(db, 'users', currentUser.uid)
+      getDoc(userDoc)
+      .then((doc) => {
+        setUserInfo(doc.data())
+      })
+    }
+    setUserData()
+  }
+
   useEffect(() => {
     if(currentUser) {
       const setUserData = async () => {
@@ -79,7 +90,8 @@ export const AuthProvider = ({ children }) => {
     signin,
     signout,
     userInfo,
-    googleSignup
+    googleSignup,
+    refreshUser
   }
 
   return (

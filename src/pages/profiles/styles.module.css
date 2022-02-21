@@ -1,0 +1,255 @@
+.container {
+  position: relative;
+  max-width: 38em;
+  padding: 1em 3em 2em 3em;
+  margin: 8em auto;
+  border-radius: 4.2px;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+
+.h4Color {
+  color: #f0a500;
+}
+
+.inputGroup input,
+.inputGroup input[type="radio"]+label,
+.inputGroup input[type="checkbox"]+label:before,
+.inputGroup select option,
+.inputGroup select {
+  width: 100%;
+  padding: 1em;
+  line-height: 1.4;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  -webkit-transition: 0.35s ease-in-out;
+  -moz-transition: 0.35s ease-in-out;
+  -o-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+.inputGroup input:focus {
+  outline: 0;
+  border-color: #bd8200;
+}
+
+.inputGroup input:focus+.inputIcon i {
+  color: #f0a500;
+}
+
+.inputGroup input:focus+.inputIcon:after {
+  border-right-color: #f0a500;
+}
+
+.inputGroup input[type="radio"] {
+  display: none;
+}
+
+.inputGroup input[type="radio"]+label,
+.inputGroup select {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  float: left;
+  border-radius: 0;
+}
+
+.inputGroup input[type="radio"]+label:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.inputGroup input[type="radio"]+label:last-of-type {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.inputGroup input[type="radio"]+label i {
+  padding-right: 0.4em;
+}
+
+.inputGroup input[type="radio"]:checked+label,
+.inputGroup input:checked+label:before,
+.inputGroup select:focus,
+.inputGroup select:active {
+  background-color: #f0a500;
+  color: #fff;
+  border-color: #bd8200;
+}
+
+.inputGroup input[type="checkbox"] {
+  display: none;
+}
+
+.inputGroup input[type="checkbox"]+label {
+  position: relative;
+  display: block;
+  padding-left: 1.6em;
+}
+
+.inputGroup input[type="checkbox"]+label:before {
+  position: absolute;
+  top: 0.2em;
+  left: 0;
+  display: block;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  content: "";
+}
+
+.inputGroup input[type="checkbox"]+label:after {
+  position: absolute;
+  top: 0.45em;
+  left: 0.2em;
+  font-size: 0.8em;
+  color: #fff;
+  opacity: 0;
+  font-family: FontAwesome;
+  content: "\f00c";
+}
+
+.inputGroup input:checked+label:after {
+  opacity: 1;
+}
+
+.inputGroup select {
+  height: 3.4em;
+  line-height: 2;
+}
+
+.inputGroup select:first-of-type {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.inputGroup select:last-of-type {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.inputGroup select:focus,
+.inputGroup select:active {
+  outline: 0;
+}
+
+.inputGroup select option {
+  background-color: #f0a500;
+  color: #fff;
+}
+
+.inputGroup textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+.inputGroup {
+  margin-bottom: 1em;
+  zoom: 1;
+}
+
+.inputGroup:before,
+.inputGroup:after {
+  content: "";
+  display: table;
+}
+
+.inputGroup:after {
+  clear: both;
+}
+
+.colHalf {
+  padding-right: 10px;
+  float: left;
+  width: 50%;
+}
+
+.colHalf:last-of-type {
+  padding-right: 0;
+}
+
+.colThird {
+  padding-right: 10px;
+  float: left;
+  width: 33.33333333%;
+}
+
+.colThird:last-of-type {
+  padding-right: 0;
+}
+
+@media only screen and (max-width: 540px) {
+  .colHalf {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+.locationWrapper {
+  display: flex;
+  gap: 3px;
+}
+
+.locationWrapper input {
+  width: 100%;
+}
+
+.mainRow {
+  width: 94%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.mainRow:before, .mainRow:after {
+  content: "";
+  display: table;
+}
+
+.mainRow:after {
+  clear: both;
+}
+
+.mainRow .mainRow {
+  width: auto;
+  max-width: none;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.profileImage {
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #cddc39;
+  filter: drop-shadow(0 0 8px #ff5722);
+}
+
+.submitWrapper {
+  position: relative;
+}
+
+.inputGroup input[type="submit"] {
+  background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
+  border-radius: 40px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: block;
+  height: 50px;
+  font-size: 1.4em;
+  padding: 4px;
+  position: relative;
+  text-decoration: none;
+  width: 7em;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.inputGroup input[type="submit"]:hover {
+  background-image: linear-gradient(to right, #00a950 0%, #006175 100%);
+}
