@@ -4,6 +4,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  padding-bottom: 10%;
 }
 
 .cardsItem {
@@ -70,6 +71,10 @@
 
 .cardTitleWrapper {
   display: flex;
+}
+
+.titleWrapper {
+  width: 100%;
 }
 
 .cardTitle {

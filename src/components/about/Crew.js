@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import bryantImage from "../../images/leadinvestigator.jpg";
 import cheyenneImage from "../../images/investigatorCheyenne.jpg";
 import luImage from "../../images/techguy.jpg";
+import mattImage from "../../images/matt.png";
 
 const Crew = () => {
   const {
@@ -14,6 +15,7 @@ const Crew = () => {
     cardTitleWrapper,
     cardTitle,
     cardText,
+    titleWrapper
   } = styles;
   const crewMembers = [
     {
@@ -31,8 +33,14 @@ const Crew = () => {
     {
       image: luImage,
       name: "Lucius Richards",
-      title: "Investigator/Tech",
+      title: "Investigator/Tech and Support",
       quote: "That's a nope.",
+    },
+    {
+      image: mattImage,
+      name: "Matthew Bowman",
+      title: "Investigator/Tech and Support",
+      quote: "The afterlife catches up with all of us, so why not look into it while we are here?",
     },
   ];
   return (
